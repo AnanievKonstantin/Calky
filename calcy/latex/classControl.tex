@@ -1,0 +1,398 @@
+\hypertarget{classControl}{}\section{Control Class Reference}
+\label{classControl}\index{Control@{Control}}
+
+
+The \hyperlink{classControl}{Control} class создает рабочее окно калькулятора, модель для обработки математичесикх выражений распределяет сигналы и события для взаимодействия пользовательского интерфейса с моделью  
+
+
+
+
+{\ttfamily \#include $<$Control.\+h$>$}
+
+
+
+Inheritance diagram for Control\+:
+% FIG 0
+
+
+Collaboration diagram for Control\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classControl_a871ce0e5519b1b67b9d785accddee746}{Control} (Q\+Object $\ast$parent=0)
+\item 
+\hyperlink{classControl_aedda1328c4f8b8d49bca8f0812d3bfd1}{$\sim$\+Control} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classControl_aba9a456fd0d24c077a1fae770af7762c}{set\+\_\+event\+\_\+to\+\_\+button} (Q\+List$<$ \hyperlink{classButton}{Button} $\ast$ $>$ $\ast$list)
+\begin{DoxyCompactList}\small\item\em set\+\_\+event\+\_\+to\+\_\+button создает взаимодействие между переданными кнопками и полем ввода выражения при нажатии кнопки в поле жля ввода выводится её название \end{DoxyCompactList}\item 
+void \hyperlink{classControl_ad8aef81d3de013b05ce3ac57fea217af}{create\+\_\+model\+\_\+and\+\_\+viewer\+\_\+interface} (\hyperlink{classButton}{Button} $\ast$calculation\+\_\+button, \hyperlink{classButton}{Button} $\ast$mem\+\_\+plus\+\_\+button, \hyperlink{classButton}{Button} $\ast$mem\+\_\+minus\+\_\+button)
+\begin{DoxyCompactList}\small\item\em create\+\_\+model\+\_\+and\+\_\+viewer\+\_\+interface определяет действия, которые произайду при нажатии кнопок \textquotesingle{}=\textquotesingle{},\textquotesingle{}M+\textquotesingle{},\textquotesingle{}M-\/\textquotesingle{} между моделью и text\+Edit \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classWindow}{Window} $\ast$ \hyperlink{classControl_a377fd2daac62819ac5856cc2a852c550}{calc\+\_\+win}
+\item 
+\hyperlink{classModel}{Model} $\ast$ \hyperlink{classControl_a249421d8ef527bd40991b557daec911c}{calc\+\_\+model}
+\item 
+\hyperlink{classTextEdit}{Text\+Edit} $\ast$ \hyperlink{classControl_ae666eb91a7f9f964a07e779798cd18c8}{calc\+\_\+line\+\_\+edit}
+\item 
+Q\+Grid\+Layout $\ast$ \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\+\_\+main\+\_\+layout}
+\item 
+Q\+List$<$ \hyperlink{classButton}{Button} $\ast$ $>$ $\ast$ \hyperlink{classControl_adc925de7c9359450654d0ebf03304a07}{buttons\+\_\+operations}
+\item 
+Q\+List$<$ \hyperlink{classButton}{Button} $\ast$ $>$ $\ast$ \hyperlink{classControl_ada5bc6208e19fb16e73c0000164db11a}{buttons\+\_\+functions}
+\item 
+Q\+List$<$ \hyperlink{classButton}{Button} $\ast$ $>$ $\ast$ \hyperlink{classControl_a1675f42401d90e37e0273f991c6886b6}{buttons\+\_\+numbers}
+\item 
+Q\+List$<$ \hyperlink{classButton}{Button} $\ast$ $>$ $\ast$ \hyperlink{classControl_a411ed3a73de2c83535ce4d2b44b91ace}{advanced\+\_\+button}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classControl}{Control} class создает рабочее окно калькулятора, модель для обработки математичесикх выражений распределяет сигналы и события для взаимодействия пользовательского интерфейса с моделью 
+
+Definition at line 18 of file Control.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classControl_a871ce0e5519b1b67b9d785accddee746}{}\index{Control@{Control}!Control@{Control}}
+\index{Control@{Control}!Control@{Control}}
+\subsubsection[{Control}]{\setlength{\rightskip}{0pt plus 5cm}Control\+::\+Control (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{classControl_a871ce0e5519b1b67b9d785accddee746}
+
+
+Definition at line 55 of file Control.\+cpp.
+
+
+\begin{DoxyCode}
+55                                 :
+56     QObject(parent)
+57 \{
+58     this->\hyperlink{classControl_a377fd2daac62819ac5856cc2a852c550}{calc\_win}          = \textcolor{keyword}{new} \hyperlink{classWindow}{Window}();
+59     this->\hyperlink{classControl_a249421d8ef527bd40991b557daec911c}{calc\_model}        = \textcolor{keyword}{new} \hyperlink{classModel}{Model}();
+60     this->\hyperlink{classControl_ae666eb91a7f9f964a07e779798cd18c8}{calc\_line\_edit}    = \textcolor{keyword}{new} \hyperlink{classTextEdit}{TextEdit};
+61     this->\hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}   = \textcolor{keyword}{new} QGridLayout;
+62 
+63     this->\hyperlink{classControl_a1675f42401d90e37e0273f991c6886b6}{buttons\_numbers}       = \textcolor{keyword}{new} QList<Button*>;
+64     this->\hyperlink{classControl_ada5bc6208e19fb16e73c0000164db11a}{buttons\_functions}     = \textcolor{keyword}{new} QList<Button*>;
+65     this->\hyperlink{classControl_adc925de7c9359450654d0ebf03304a07}{buttons\_operations}    = \textcolor{keyword}{new} QList<Button*>;
+66     this->\hyperlink{classControl_a411ed3a73de2c83535ce4d2b44b91ace}{advanced\_button}       = \textcolor{keyword}{new} QList<Button*>;
+67 
+68     \hyperlink{classButton}{Button} * b0        = \textcolor{keyword}{new} \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"0"});
+69     \hyperlink{classButton}{Button} * b1        = \textcolor{keyword}{new} \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"1"});
+70     \hyperlink{classButton}{Button} * b2        = \textcolor{keyword}{new} \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"2"});
+71     \hyperlink{classButton}{Button} * b3        = \textcolor{keyword}{new} \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"3"});
+72     \hyperlink{classButton}{Button} * b4        = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"4"});
+73     \hyperlink{classButton}{Button} * b5        = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"5"});
+74     \hyperlink{classButton}{Button} * b6        = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"6"});
+75     \hyperlink{classButton}{Button} * b7        = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"7"});
+76     \hyperlink{classButton}{Button} * b8        = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"8"});
+77     \hyperlink{classButton}{Button} * b9        = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"9"});
+78     \hyperlink{classButton}{Button} * b\_M\_plus  = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"M+"});
+79     \hyperlink{classButton}{Button} * b\_M\_minus = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"M-"});
+80     \hyperlink{classButton}{Button} * b\_mul     = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"*"});
+81     \hyperlink{classButton}{Button} * b\_div     = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"/"});
+82     \hyperlink{classButton}{Button} * b\_plus    = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"+"});
+83     \hyperlink{classButton}{Button} * b\_minus   = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"-"});
+84     \hyperlink{classButton}{Button} * b\_power   = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"^"});
+85     \hyperlink{classButton}{Button} * b\_fact    = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"!"});
+86     \hyperlink{classButton}{Button} * b\_sin     = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"sin()"});
+87     \hyperlink{classButton}{Button} * b\_cos     = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"cos()"});
+88     \hyperlink{classButton}{Button} * b\_tan     = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"tan()"});
+89     \hyperlink{classButton}{Button} * b\_ctan    = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"ctan()"});
+90     \hyperlink{classButton}{Button} * b\_asin    = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"asin()"});
+91     \hyperlink{classButton}{Button} * b\_acos    = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"acos()"});
+92     \hyperlink{classButton}{Button} * b\_exp     = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"exp()"});
+93     \hyperlink{classButton}{Button} * b\_ln      = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"ln()"});
+94     \hyperlink{classButton}{Button} * b\_log     = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"log()"});
+95     \hyperlink{classButton}{Button} * b\_mod     = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"mod()"});
+96     \hyperlink{classButton}{Button} * b\_sqrt    = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"sqrt()"});
+97     \hyperlink{classButton}{Button} * b\_calc    = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"="});
+98     \hyperlink{classButton}{Button} * b\_clear    = \textcolor{keyword}{new}  \hyperlink{classButton}{Button}(\textcolor{stringliteral}{"clear"});
+99 
+100     \hyperlink{classControl_a411ed3a73de2c83535ce4d2b44b91ace}{advanced\_button}->append(b\_clear);
+101     \hyperlink{classControl_a411ed3a73de2c83535ce4d2b44b91ace}{advanced\_button}->append(b\_calc);
+102     \hyperlink{classControl_a411ed3a73de2c83535ce4d2b44b91ace}{advanced\_button}->append(b\_M\_minus);
+103     \hyperlink{classControl_a411ed3a73de2c83535ce4d2b44b91ace}{advanced\_button}->append(b\_M\_minus);
+104 
+105     \hyperlink{classControl_a1675f42401d90e37e0273f991c6886b6}{buttons\_numbers}->append(b0);
+106     \hyperlink{classControl_a1675f42401d90e37e0273f991c6886b6}{buttons\_numbers}->append(b1);
+107     \hyperlink{classControl_a1675f42401d90e37e0273f991c6886b6}{buttons\_numbers}->append(b2);
+108     \hyperlink{classControl_a1675f42401d90e37e0273f991c6886b6}{buttons\_numbers}->append(b3);
+109     \hyperlink{classControl_a1675f42401d90e37e0273f991c6886b6}{buttons\_numbers}->append(b4);
+110     \hyperlink{classControl_a1675f42401d90e37e0273f991c6886b6}{buttons\_numbers}->append(b5);
+111     \hyperlink{classControl_a1675f42401d90e37e0273f991c6886b6}{buttons\_numbers}->append(b6);
+112     \hyperlink{classControl_a1675f42401d90e37e0273f991c6886b6}{buttons\_numbers}->append(b7);
+113     \hyperlink{classControl_a1675f42401d90e37e0273f991c6886b6}{buttons\_numbers}->append(b8);
+114     \hyperlink{classControl_a1675f42401d90e37e0273f991c6886b6}{buttons\_numbers}->append(b9);
+115 
+116     \hyperlink{classControl_adc925de7c9359450654d0ebf03304a07}{buttons\_operations}->append(b\_mul);
+117     \hyperlink{classControl_adc925de7c9359450654d0ebf03304a07}{buttons\_operations}->append(b\_div);
+118     \hyperlink{classControl_adc925de7c9359450654d0ebf03304a07}{buttons\_operations}->append(b\_plus);
+119     \hyperlink{classControl_adc925de7c9359450654d0ebf03304a07}{buttons\_operations}->append(b\_minus);
+120     \hyperlink{classControl_adc925de7c9359450654d0ebf03304a07}{buttons\_operations}->append(b\_power);
+121     \hyperlink{classControl_adc925de7c9359450654d0ebf03304a07}{buttons\_operations}->append(b\_fact);
+122 
+123     \hyperlink{classControl_ada5bc6208e19fb16e73c0000164db11a}{buttons\_functions}->append(b\_sin);
+124     \hyperlink{classControl_ada5bc6208e19fb16e73c0000164db11a}{buttons\_functions}->append(b\_cos);
+125     \hyperlink{classControl_ada5bc6208e19fb16e73c0000164db11a}{buttons\_functions}->append(b\_tan);
+126     \hyperlink{classControl_ada5bc6208e19fb16e73c0000164db11a}{buttons\_functions}->append(b\_ctan);
+127     \hyperlink{classControl_ada5bc6208e19fb16e73c0000164db11a}{buttons\_functions}->append(b\_asin);
+128     \hyperlink{classControl_ada5bc6208e19fb16e73c0000164db11a}{buttons\_functions}->append(b\_acos);
+129     \hyperlink{classControl_ada5bc6208e19fb16e73c0000164db11a}{buttons\_functions}->append(b\_exp);
+130     \hyperlink{classControl_ada5bc6208e19fb16e73c0000164db11a}{buttons\_functions}->append(b\_ln);
+131     \hyperlink{classControl_ada5bc6208e19fb16e73c0000164db11a}{buttons\_functions}->append(b\_log);
+132     \hyperlink{classControl_ada5bc6208e19fb16e73c0000164db11a}{buttons\_functions}->append(b\_mod);
+133     \hyperlink{classControl_ada5bc6208e19fb16e73c0000164db11a}{buttons\_functions}->append(b\_sqrt);
+134 
+135     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(\hyperlink{classControl_ae666eb91a7f9f964a07e779798cd18c8}{calc\_line\_edit},0,0,1,3);
+136     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b0,5,1);
+137 
+138     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b1,2,0);
+139     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b2,2,1);
+140     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b3,2,2);
+141 
+142     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b4,3,0);
+143     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b5,3,1);
+144     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b6,3,2);
+145 
+146     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b7,4,0);
+147     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b8,4,1);
+148     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b9,4,2);
+149 
+150     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_M\_minus,7,0);
+151     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_M\_plus,6,0);
+152     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_mul,6,1);
+153     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_div,7,1);
+154 
+155     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_plus,6,2);
+156     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_minus,7,2);
+157     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_power,10,0);
+158     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_fact,10,0);
+159     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_sin);
+160     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_cos);
+161     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_tan);
+162     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_ctan);
+163     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_asin);
+164     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_acos);
+165     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_exp);
+166     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_ln);
+167     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_log);
+168     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_mod);
+169     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_sqrt);
+170     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_calc,16,0,1,3);
+171     \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout}->addWidget(b\_clear,5,2);
+172 
+173     this->\hyperlink{classControl_aba9a456fd0d24c077a1fae770af7762c}{set\_event\_to\_button}(\hyperlink{classControl_a1675f42401d90e37e0273f991c6886b6}{buttons\_numbers});
+174     this->\hyperlink{classControl_aba9a456fd0d24c077a1fae770af7762c}{set\_event\_to\_button}(\hyperlink{classControl_adc925de7c9359450654d0ebf03304a07}{buttons\_operations});
+175     this->\hyperlink{classControl_aba9a456fd0d24c077a1fae770af7762c}{set\_event\_to\_button}(\hyperlink{classControl_ada5bc6208e19fb16e73c0000164db11a}{buttons\_functions});
+176 
+177     this->\hyperlink{classControl_ad8aef81d3de013b05ce3ac57fea217af}{create\_model\_and\_viewer\_interface}(b\_calc,b\_M\_plus,b\_M\_minus);
+178 
+179     \textcolor{comment}{//установка события отчистки экрана на клик по копке clear}
+180     QObject::connect(b\_clear,SIGNAL(clicked()),
+181                      this->\hyperlink{classControl_ae666eb91a7f9f964a07e779798cd18c8}{calc\_line\_edit},SLOT(slot\_clear\_text()));
+182 
+183     \hyperlink{classControl_a377fd2daac62819ac5856cc2a852c550}{calc\_win}->setLayout(\hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout});
+184     \hyperlink{classControl_a377fd2daac62819ac5856cc2a852c550}{calc\_win}->show();
+185 \}
+\end{DoxyCode}
+\hypertarget{classControl_aedda1328c4f8b8d49bca8f0812d3bfd1}{}\index{Control@{Control}!````~Control@{$\sim$\+Control}}
+\index{````~Control@{$\sim$\+Control}!Control@{Control}}
+\subsubsection[{$\sim$\+Control}]{\setlength{\rightskip}{0pt plus 5cm}Control\+::$\sim$\+Control (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classControl_aedda1328c4f8b8d49bca8f0812d3bfd1}
+
+
+Definition at line 187 of file Control.\+cpp.
+
+
+\begin{DoxyCode}
+188 \{
+189     \textcolor{keyword}{delete} \hyperlink{classControl_a1675f42401d90e37e0273f991c6886b6}{buttons\_numbers};
+190     \textcolor{keyword}{delete} \hyperlink{classControl_ada5bc6208e19fb16e73c0000164db11a}{buttons\_functions};
+191     \textcolor{keyword}{delete} \hyperlink{classControl_adc925de7c9359450654d0ebf03304a07}{buttons\_operations};
+192     \textcolor{keyword}{delete} \hyperlink{classControl_a411ed3a73de2c83535ce4d2b44b91ace}{advanced\_button};
+193     \textcolor{keyword}{delete} \hyperlink{classControl_a249421d8ef527bd40991b557daec911c}{calc\_model};
+194     \textcolor{keyword}{delete} \hyperlink{classControl_a377fd2daac62819ac5856cc2a852c550}{calc\_win};
+195     \textcolor{keyword}{delete} \hyperlink{classControl_ae666eb91a7f9f964a07e779798cd18c8}{calc\_line\_edit};
+196     \textcolor{keyword}{delete} \hyperlink{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{win\_main\_layout};
+197 
+198 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classControl_ad8aef81d3de013b05ce3ac57fea217af}{}\index{Control@{Control}!create\+\_\+model\+\_\+and\+\_\+viewer\+\_\+interface@{create\+\_\+model\+\_\+and\+\_\+viewer\+\_\+interface}}
+\index{create\+\_\+model\+\_\+and\+\_\+viewer\+\_\+interface@{create\+\_\+model\+\_\+and\+\_\+viewer\+\_\+interface}!Control@{Control}}
+\subsubsection[{create\+\_\+model\+\_\+and\+\_\+viewer\+\_\+interface}]{\setlength{\rightskip}{0pt plus 5cm}void Control\+::create\+\_\+model\+\_\+and\+\_\+viewer\+\_\+interface (
+\begin{DoxyParamCaption}
+\item[{{\bf Button} $\ast$}]{calculation\+\_\+button, }
+\item[{{\bf Button} $\ast$}]{mem\+\_\+plus\+\_\+button, }
+\item[{{\bf Button} $\ast$}]{mem\+\_\+minus\+\_\+button}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classControl_ad8aef81d3de013b05ce3ac57fea217af}
+
+
+create\+\_\+model\+\_\+and\+\_\+viewer\+\_\+interface определяет действия, которые произайду при нажатии кнопок \textquotesingle{}=\textquotesingle{},\textquotesingle{}M+\textquotesingle{},\textquotesingle{}M-\/\textquotesingle{} между моделью и text\+Edit 
+
+
+\begin{DoxyParams}{Parameters}
+{\em calculation\+\_\+button} & кнопка передачи выражения в model \\
+\hline
+{\em mem\+\_\+plus\+\_\+button} & кнопка добавления выражения в память \\
+\hline
+{\em mem\+\_\+minus\+\_\+button} & кнопка вывода данных из памяти и выводом их на экран, стирая предыдущее содержимое. Данные в памяти остаются сохранены \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 15 of file Control.\+cpp.
+
+
+\begin{DoxyCode}
+16 \{
+17     \textcolor{comment}{//--------для кнопки равно}
+18     \textcolor{comment}{/*}
+19 \textcolor{comment}{     * @brief QObject::connect}
+20 \textcolor{comment}{     * нажатие на копку =}
+21 \textcolor{comment}{     * бращается к текстовой линии для вызова сигнала о отправке текста send\_text(QString)}
+22 \textcolor{comment}{     * для передачи в calc\_model,SLOT(slot\_calculation(QString))) текущего выражения в текстовой линии}
+23 \textcolor{comment}{     */}
+24     QObject::connect(calculation\_button,SIGNAL(clicked()),
+25                      this->\hyperlink{classControl_ae666eb91a7f9f964a07e779798cd18c8}{calc\_line\_edit},SLOT(slot\_call\_signal\_send\_text()));
+26     \textcolor{comment}{/*}
+27 \textcolor{comment}{     * @brief QObject::connect}
+28 \textcolor{comment}{     * передача значения из текстовой линии в парсер - calc\_model}
+29 \textcolor{comment}{     */}
+30     QObject::connect(\hyperlink{classControl_ae666eb91a7f9f964a07e779798cd18c8}{calc\_line\_edit},SIGNAL(send\_text(QString)),
+31                      this->\hyperlink{classControl_a249421d8ef527bd40991b557daec911c}{calc\_model},SLOT(slot\_calculation(QString)));
+32     \textcolor{comment}{/*}
+33 \textcolor{comment}{     * @brief QObject::connect}
+34 \textcolor{comment}{     * передача результата вычислений в calc\_line\_edit}
+35 \textcolor{comment}{     */}
+36     QObject::connect(this->\hyperlink{classControl_a249421d8ef527bd40991b557daec911c}{calc\_model},SIGNAL(signal\_send\_result(QString)),
+37                      this->\hyperlink{classControl_ae666eb91a7f9f964a07e779798cd18c8}{calc\_line\_edit},SLOT(setText(QString)));
+38     \textcolor{comment}{//----------}
+39 
+40     \textcolor{comment}{//M+ and M- button}
+41     QObject::connect(mem\_plus\_button,SIGNAL(clicked()),
+42                      this->\hyperlink{classControl_ae666eb91a7f9f964a07e779798cd18c8}{calc\_line\_edit},SLOT(slot\_call\_send\_text\_in\_memory()));
+43     QObject::connect(this->\hyperlink{classControl_ae666eb91a7f9f964a07e779798cd18c8}{calc\_line\_edit},SIGNAL(send\_text\_in\_memory(QString)),
+44                      this->\hyperlink{classControl_a249421d8ef527bd40991b557daec911c}{calc\_model},SLOT(slot\_set\_memory(QString)));
+45 
+46     QObject::connect(mem\_minus\_button,SIGNAL(clicked()),
+47                      this->\hyperlink{classControl_a249421d8ef527bd40991b557daec911c}{calc\_model},SLOT(slot\_call\_send\_memory()));
+48 
+49     QObject::connect(this->\hyperlink{classControl_a249421d8ef527bd40991b557daec911c}{calc\_model},SIGNAL(signal\_send\_memory(QString)),
+50                      this->\hyperlink{classControl_ae666eb91a7f9f964a07e779798cd18c8}{calc\_line\_edit},SLOT(setText(QString)));
+51 \}
+\end{DoxyCode}
+\hypertarget{classControl_aba9a456fd0d24c077a1fae770af7762c}{}\index{Control@{Control}!set\+\_\+event\+\_\+to\+\_\+button@{set\+\_\+event\+\_\+to\+\_\+button}}
+\index{set\+\_\+event\+\_\+to\+\_\+button@{set\+\_\+event\+\_\+to\+\_\+button}!Control@{Control}}
+\subsubsection[{set\+\_\+event\+\_\+to\+\_\+button}]{\setlength{\rightskip}{0pt plus 5cm}void Control\+::set\+\_\+event\+\_\+to\+\_\+button (
+\begin{DoxyParamCaption}
+\item[{Q\+List$<$ {\bf Button} $\ast$ $>$ $\ast$}]{list}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classControl_aba9a456fd0d24c077a1fae770af7762c}
+
+
+set\+\_\+event\+\_\+to\+\_\+button создает взаимодействие между переданными кнопками и полем ввода выражения при нажатии кнопки в поле жля ввода выводится её название 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & книпки названия которых нужно выводить в calc\+\_\+line\+\_\+edit \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 3 of file Control.\+cpp.
+
+
+\begin{DoxyCode}
+4 \{
+5     QList<Button*>::iterator i = list->begin();
+6     \textcolor{keywordflow}{for}(;i<list->end();i++)
+7     \{
+8         QObject::connect(*i,SIGNAL(clicked()),
+9                          *i,SLOT(emit\_name()));
+10         QObject::connect(*i,SIGNAL(send\_name(QString)),
+11                     this->\hyperlink{classControl_ae666eb91a7f9f964a07e779798cd18c8}{calc\_line\_edit},SLOT(slot\_append\_text(QString)));
+12     \}
+13 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classControl_a411ed3a73de2c83535ce4d2b44b91ace}{}\index{Control@{Control}!advanced\+\_\+button@{advanced\+\_\+button}}
+\index{advanced\+\_\+button@{advanced\+\_\+button}!Control@{Control}}
+\subsubsection[{advanced\+\_\+button}]{\setlength{\rightskip}{0pt plus 5cm}Q\+List$<${\bf Button}$\ast$$>$$\ast$ Control\+::advanced\+\_\+button\hspace{0.3cm}{\ttfamily [protected]}}\label{classControl_a411ed3a73de2c83535ce4d2b44b91ace}
+
+
+Definition at line 29 of file Control.\+h.
+
+\hypertarget{classControl_ada5bc6208e19fb16e73c0000164db11a}{}\index{Control@{Control}!buttons\+\_\+functions@{buttons\+\_\+functions}}
+\index{buttons\+\_\+functions@{buttons\+\_\+functions}!Control@{Control}}
+\subsubsection[{buttons\+\_\+functions}]{\setlength{\rightskip}{0pt plus 5cm}Q\+List$<${\bf Button}$\ast$$>$$\ast$ Control\+::buttons\+\_\+functions\hspace{0.3cm}{\ttfamily [protected]}}\label{classControl_ada5bc6208e19fb16e73c0000164db11a}
+
+
+Definition at line 27 of file Control.\+h.
+
+\hypertarget{classControl_a1675f42401d90e37e0273f991c6886b6}{}\index{Control@{Control}!buttons\+\_\+numbers@{buttons\+\_\+numbers}}
+\index{buttons\+\_\+numbers@{buttons\+\_\+numbers}!Control@{Control}}
+\subsubsection[{buttons\+\_\+numbers}]{\setlength{\rightskip}{0pt plus 5cm}Q\+List$<${\bf Button}$\ast$$>$$\ast$ Control\+::buttons\+\_\+numbers\hspace{0.3cm}{\ttfamily [protected]}}\label{classControl_a1675f42401d90e37e0273f991c6886b6}
+
+
+Definition at line 28 of file Control.\+h.
+
+\hypertarget{classControl_adc925de7c9359450654d0ebf03304a07}{}\index{Control@{Control}!buttons\+\_\+operations@{buttons\+\_\+operations}}
+\index{buttons\+\_\+operations@{buttons\+\_\+operations}!Control@{Control}}
+\subsubsection[{buttons\+\_\+operations}]{\setlength{\rightskip}{0pt plus 5cm}Q\+List$<${\bf Button}$\ast$$>$$\ast$ Control\+::buttons\+\_\+operations\hspace{0.3cm}{\ttfamily [protected]}}\label{classControl_adc925de7c9359450654d0ebf03304a07}
+
+
+Definition at line 26 of file Control.\+h.
+
+\hypertarget{classControl_ae666eb91a7f9f964a07e779798cd18c8}{}\index{Control@{Control}!calc\+\_\+line\+\_\+edit@{calc\+\_\+line\+\_\+edit}}
+\index{calc\+\_\+line\+\_\+edit@{calc\+\_\+line\+\_\+edit}!Control@{Control}}
+\subsubsection[{calc\+\_\+line\+\_\+edit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Text\+Edit}$\ast$ Control\+::calc\+\_\+line\+\_\+edit\hspace{0.3cm}{\ttfamily [protected]}}\label{classControl_ae666eb91a7f9f964a07e779798cd18c8}
+
+
+Definition at line 24 of file Control.\+h.
+
+\hypertarget{classControl_a249421d8ef527bd40991b557daec911c}{}\index{Control@{Control}!calc\+\_\+model@{calc\+\_\+model}}
+\index{calc\+\_\+model@{calc\+\_\+model}!Control@{Control}}
+\subsubsection[{calc\+\_\+model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model}$\ast$ Control\+::calc\+\_\+model\hspace{0.3cm}{\ttfamily [protected]}}\label{classControl_a249421d8ef527bd40991b557daec911c}
+
+
+Definition at line 23 of file Control.\+h.
+
+\hypertarget{classControl_a377fd2daac62819ac5856cc2a852c550}{}\index{Control@{Control}!calc\+\_\+win@{calc\+\_\+win}}
+\index{calc\+\_\+win@{calc\+\_\+win}!Control@{Control}}
+\subsubsection[{calc\+\_\+win}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window}$\ast$ Control\+::calc\+\_\+win\hspace{0.3cm}{\ttfamily [protected]}}\label{classControl_a377fd2daac62819ac5856cc2a852c550}
+
+
+Definition at line 22 of file Control.\+h.
+
+\hypertarget{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}{}\index{Control@{Control}!win\+\_\+main\+\_\+layout@{win\+\_\+main\+\_\+layout}}
+\index{win\+\_\+main\+\_\+layout@{win\+\_\+main\+\_\+layout}!Control@{Control}}
+\subsubsection[{win\+\_\+main\+\_\+layout}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Grid\+Layout$\ast$ Control\+::win\+\_\+main\+\_\+layout\hspace{0.3cm}{\ttfamily [protected]}}\label{classControl_ab3a44edbe7c336f435e0d0e8d2258e0d}
+
+
+Definition at line 25 of file Control.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Control_8h}{Control.\+h}\item 
+\hyperlink{Control_8cpp}{Control.\+cpp}\end{DoxyCompactItemize}

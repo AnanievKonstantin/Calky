@@ -1,0 +1,123 @@
+\hypertarget{classButton}{}\section{Button Class Reference}
+\label{classButton}\index{Button@{Button}}
+
+
+The \hyperlink{classButton}{Button} class расширение Q\+Push\+Button. Добавлена возможность передачи названия текста на кнопке через сигнал send\+\_\+name.  
+
+
+
+
+{\ttfamily \#include $<$Button.\+h$>$}
+
+
+
+Inheritance diagram for Button\+:
+% FIG 0
+
+
+Collaboration diagram for Button\+:
+% FIG 1
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classButton_a337d0358a39920f2d5843412350e1c1f}{emit\+\_\+name} ()
+\begin{DoxyCompactList}\small\item\em emit\+\_\+name запрос на передачу названия кнопки \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classButton_aaf8fb3a45de5e6b6eba4741ad4d629ff}{send\+\_\+name} (Q\+String \hyperlink{classButton_ac1343196c45cdd97326986d07f4f92e6}{name})
+\begin{DoxyCompactList}\small\item\em send\+\_\+name отправка названия кнопки \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classButton_ac91b269c3d8d22141ff425892813e82d}{Button} (Q\+String \hyperlink{classButton_ac1343196c45cdd97326986d07f4f92e6}{name})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+String \hyperlink{classButton_ac1343196c45cdd97326986d07f4f92e6}{name}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classButton}{Button} class расширение Q\+Push\+Button. Добавлена возможность передачи названия текста на кнопке через сигнал send\+\_\+name. 
+
+Definition at line 12 of file Button.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classButton_ac91b269c3d8d22141ff425892813e82d}{}\index{Button@{Button}!Button@{Button}}
+\index{Button@{Button}!Button@{Button}}
+\subsubsection[{Button}]{\setlength{\rightskip}{0pt plus 5cm}Button\+::\+Button (
+\begin{DoxyParamCaption}
+\item[{Q\+String}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{classButton_ac91b269c3d8d22141ff425892813e82d}
+
+
+Definition at line 3 of file Button.\+cpp.
+
+
+\begin{DoxyCode}
+3                           :QPushButton(\hyperlink{classButton_ac1343196c45cdd97326986d07f4f92e6}{name})
+4 \{
+5     this->\hyperlink{classButton_ac1343196c45cdd97326986d07f4f92e6}{name}=\hyperlink{classButton_ac1343196c45cdd97326986d07f4f92e6}{name};
+6 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classButton_a337d0358a39920f2d5843412350e1c1f}{}\index{Button@{Button}!emit\+\_\+name@{emit\+\_\+name}}
+\index{emit\+\_\+name@{emit\+\_\+name}!Button@{Button}}
+\subsubsection[{emit\+\_\+name}]{\setlength{\rightskip}{0pt plus 5cm}void Button\+::emit\+\_\+name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classButton_a337d0358a39920f2d5843412350e1c1f}
+
+
+emit\+\_\+name запрос на передачу названия кнопки 
+
+
+
+Definition at line 8 of file Button.\+cpp.
+
+
+\begin{DoxyCode}
+9 \{
+10     emit \hyperlink{classButton_aaf8fb3a45de5e6b6eba4741ad4d629ff}{send\_name}(this->\hyperlink{classButton_ac1343196c45cdd97326986d07f4f92e6}{name});
+11 \}
+\end{DoxyCode}
+\hypertarget{classButton_aaf8fb3a45de5e6b6eba4741ad4d629ff}{}\index{Button@{Button}!send\+\_\+name@{send\+\_\+name}}
+\index{send\+\_\+name@{send\+\_\+name}!Button@{Button}}
+\subsubsection[{send\+\_\+name}]{\setlength{\rightskip}{0pt plus 5cm}void Button\+::send\+\_\+name (
+\begin{DoxyParamCaption}
+\item[{Q\+String}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classButton_aaf8fb3a45de5e6b6eba4741ad4d629ff}
+
+
+send\+\_\+name отправка названия кнопки 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & название кнопки \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classButton_ac1343196c45cdd97326986d07f4f92e6}{}\index{Button@{Button}!name@{name}}
+\index{name@{name}!Button@{Button}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Button\+::name\hspace{0.3cm}{\ttfamily [protected]}}\label{classButton_ac1343196c45cdd97326986d07f4f92e6}
+
+
+Definition at line 16 of file Button.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Button_8h}{Button.\+h}\item 
+\hyperlink{Button_8cpp}{Button.\+cpp}\end{DoxyCompactItemize}

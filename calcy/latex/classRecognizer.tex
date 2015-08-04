@@ -1,0 +1,821 @@
+\hypertarget{classRecognizer}{}\section{Recognizer Class Reference}
+\label{classRecognizer}\index{Recognizer@{Recognizer}}
+
+
+The \hyperlink{classRecognizer}{Recognizer} class Получает команду от парсера и строит список после чего расчитывает значение выражения в списке результат поместит в reselt\+\_\+calculation.  
+
+
+
+
+{\ttfamily \#include $<$Recognizer.\+h$>$}
+
+
+
+Collaboration diagram for Recognizer\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classRecognizer_a4bf77b760d8dbc50c4ef50cad433db40}{Recognizer} ()
+\item 
+\hyperlink{classRecognizer_aa0035e71951a13fe00764a54913d0e5a}{$\sim$\+Recognizer} ()
+\item 
+bool \hyperlink{classRecognizer_aeadea601dea82f59e0750ed7adbef337}{add\+Element} (\hyperlink{structNSParser_1_1cell__verb}{N\+S\+Parser\+::cell\+\_\+verb} cmd)
+\begin{DoxyCompactList}\small\item\em add\+Element добавление элемента в список или его создание в случае пустого списка \end{DoxyCompactList}\item 
+double \hyperlink{classRecognizer_a31399be9b5e3eaf37dc90a749ed771bb}{get\+\_\+result} () const 
+\begin{DoxyCompactList}\small\item\em get\+\_\+result вернетрезультат вычислений \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classRecognizer_aaed9d9a4c9da3c87bead97c2bdff67ee}{init} ()
+\begin{DoxyCompactList}\small\item\em init инициация значений по умолчанию для начала работы и сознания нового списка \end{DoxyCompactList}\item 
+void \hyperlink{classRecognizer_a26b489b7440f205ebcd2e0ec5ddde7b0}{clear\+\_\+list} ()
+\begin{DoxyCompactList}\small\item\em clear\+\_\+list удаление текущего списка \end{DoxyCompactList}\item 
+bool \hyperlink{classRecognizer_a537a84cf5e128047ce9940227428e37c}{fill\+\_\+cell} (\hyperlink{structlist__cell}{list\+\_\+cell} $\ast$cell, \hyperlink{structNSParser_1_1cell__verb}{N\+S\+Parser\+::cell\+\_\+verb} \&cmd)
+\begin{DoxyCompactList}\small\item\em fill\+\_\+cell заполнение ячейки списка cell переданными значениями из cmd, установка приоритета лексеме \end{DoxyCompactList}\item 
+int \hyperlink{classRecognizer_abb82141d2131cc8d2cdbdcbd27e481e2}{get\+\_\+priority} (\hyperlink{structNSParser_1_1cell__verb}{N\+S\+Parser\+::cell\+\_\+verb} \&cmd)
+\begin{DoxyCompactList}\small\item\em get\+\_\+priority получение приоритеты операции по её типу \end{DoxyCompactList}\item 
+void \hyperlink{classRecognizer_ae769340001160be53c33f440ddea8be7}{print\+\_\+expression\+\_\+list} () const 
+\begin{DoxyCompactList}\small\item\em print\+\_\+expression\+\_\+list вывод списка для вычисления на экран \end{DoxyCompactList}\item 
+void \hyperlink{classRecognizer_af0e40e5fb733a601751f97568aaeb856}{print\+\_\+cell\+\_\+list} (\hyperlink{structlist__cell}{list\+\_\+cell} $\ast$cell) const 
+\begin{DoxyCompactList}\small\item\em print\+\_\+cell\+\_\+list вывод переданной ячейки списка \end{DoxyCompactList}\item 
+double \hyperlink{classRecognizer_a5f7a4de41baedf869d852ffd1cafdc06}{calc\+\_\+expression} ()
+\begin{DoxyCompactList}\small\item\em calc\+\_\+expression вычисляет данные находящиеся в списке \end{DoxyCompactList}\item 
+bool \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\+\_\+from\+\_\+list} (\hyperlink{structlist__cell}{list\+\_\+cell} $\ast$to\+\_\+delete)
+\begin{DoxyCompactList}\small\item\em remove\+\_\+from\+\_\+list удаление элемента списка по указателю \end{DoxyCompactList}\item 
+bool \hyperlink{classRecognizer_afc466411f799b54fc7c3e5c8875d78af}{calc\+\_\+operand} (\hyperlink{structlist__cell}{list\+\_\+cell} $\ast$to\+\_\+execute)
+\begin{DoxyCompactList}\small\item\em calc\+\_\+operand идентифицирует операцию и преобразует список заменяя операнд и его аргументы на одну яцейку типа N\+U\+M\+B\+E\+R c приоритетом N\+U\+M \end{DoxyCompactList}\item 
+double \hyperlink{classRecognizer_a68bb9a9f6b35666d4bf153691cc83294}{fact} (int N)
+\begin{DoxyCompactList}\small\item\em fact вычисляет факториал от числа \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classRecognizer_a6b70dee4d16fa7a8dfa6a20ed51619c0}{reselt\+\_\+calculation} =-\/666
+\item 
+\hyperlink{structlist__cell}{list\+\_\+cell} $\ast$ \hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head} =nullptr
+\item 
+\hyperlink{structlist__cell}{list\+\_\+cell} $\ast$ \hyperlink{classRecognizer_a123b3de09c7231ee0344328732fa5e13}{tail} =nullptr
+\item 
+int \hyperlink{classRecognizer_a64d6c41524ae1269968052d3af172221}{current\+\_\+prioryty} =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classRecognizer}{Recognizer} class Получает команду от парсера и строит список после чего расчитывает значение выражения в списке результат поместит в reselt\+\_\+calculation. 
+
+Definition at line 35 of file Recognizer.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classRecognizer_a4bf77b760d8dbc50c4ef50cad433db40}{}\index{Recognizer@{Recognizer}!Recognizer@{Recognizer}}
+\index{Recognizer@{Recognizer}!Recognizer@{Recognizer}}
+\subsubsection[{Recognizer}]{\setlength{\rightskip}{0pt plus 5cm}Recognizer\+::\+Recognizer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classRecognizer_a4bf77b760d8dbc50c4ef50cad433db40}
+
+
+Definition at line 356 of file Recognizer.\+cpp.
+
+
+\begin{DoxyCode}
+357 \{
+358 
+359 \}
+\end{DoxyCode}
+\hypertarget{classRecognizer_aa0035e71951a13fe00764a54913d0e5a}{}\index{Recognizer@{Recognizer}!````~Recognizer@{$\sim$\+Recognizer}}
+\index{````~Recognizer@{$\sim$\+Recognizer}!Recognizer@{Recognizer}}
+\subsubsection[{$\sim$\+Recognizer}]{\setlength{\rightskip}{0pt plus 5cm}Recognizer\+::$\sim$\+Recognizer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classRecognizer_aa0035e71951a13fe00764a54913d0e5a}
+
+
+Definition at line 361 of file Recognizer.\+cpp.
+
+
+\begin{DoxyCode}
+362 \{
+363     this->\hyperlink{classRecognizer_a26b489b7440f205ebcd2e0ec5ddde7b0}{clear\_list}();
+364 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classRecognizer_aeadea601dea82f59e0750ed7adbef337}{}\index{Recognizer@{Recognizer}!add\+Element@{add\+Element}}
+\index{add\+Element@{add\+Element}!Recognizer@{Recognizer}}
+\subsubsection[{add\+Element}]{\setlength{\rightskip}{0pt plus 5cm}bool Recognizer\+::add\+Element (
+\begin{DoxyParamCaption}
+\item[{{\bf N\+S\+Parser\+::cell\+\_\+verb}}]{cmd}
+\end{DoxyParamCaption}
+)}\label{classRecognizer_aeadea601dea82f59e0750ed7adbef337}
+
+
+add\+Element добавление элемента в список или его создание в случае пустого списка 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & команда для построения \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true если всё прошло хорошо и элемент добовлен 
+\end{DoxyReturn}
+
+
+Definition at line 367 of file Recognizer.\+cpp.
+
+
+\begin{DoxyCode}
+368 \{
+369 
+370 
+371     \textcolor{keywordflow}{switch}(cmd.\hyperlink{structNSParser_1_1cell__verb_a71c80dd322f510111134723368aa4470}{cod\_cmd})
+372     \{
+373         \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba3b1af1d878b1d699d8ac8080125f8793}{NSParser::BEGIN\_CREATION}:
+374 
+375             \hyperlink{classRecognizer_aaed9d9a4c9da3c87bead97c2bdff67ee}{init}();
+376             \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \textcolor{comment}{//установить параметры на default}
+377 
+378         \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba746882bf4644e9d73388d3132719bcf4}{NSParser::END\_CREATION}:
+379 
+380             this->\hyperlink{classRecognizer_ae769340001160be53c33f440ddea8be7}{print\_expression\_list}();
+381             this->\hyperlink{classRecognizer_a6b70dee4d16fa7a8dfa6a20ed51619c0}{reselt\_calculation}=this->\hyperlink{classRecognizer_a5f7a4de41baedf869d852ffd1cafdc06}{calc\_expression}();
+382             this->\hyperlink{classRecognizer_ae769340001160be53c33f440ddea8be7}{print\_expression\_list}();
+383             \hyperlink{classRecognizer_a26b489b7440f205ebcd2e0ec5ddde7b0}{clear\_list}();\textcolor{comment}{//почистить существующее дерево}
+384             \textcolor{comment}{//std::cout<<std::fixed<<"Result: "<<reselt\_calculation<<"\(\backslash\)n";}
+385 
+386             \textcolor{keywordflow}{return} \textcolor{keyword}{true}; \textcolor{comment}{//Вызвать функцию расчета результата}
+387         \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba01ab2b1951d3f082d1bdea65be62500a}{NSParser::OPEN\_BRACKET}:    this->
+      \hyperlink{classRecognizer_a64d6c41524ae1269968052d3af172221}{current\_prioryty}+=5; \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+388         \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4ebae5dcc33e6698dfacd80c68d023742679}{NSParser::CLOSE\_BRACKET}:   this->
+      \hyperlink{classRecognizer_a64d6c41524ae1269968052d3af172221}{current\_prioryty}-=5; \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+389 
+390     \}
+391 
+392     \textcolor{keywordflow}{if}(this->\hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head}==\textcolor{keyword}{nullptr})
+393     \{
+394         \hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head}=\textcolor{keyword}{new} \hyperlink{structlist__cell}{list\_cell};
+395         this->\hyperlink{classRecognizer_a537a84cf5e128047ce9940227428e37c}{fill\_cell}(\hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head},cmd);
+396         \hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head}->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}=\textcolor{keyword}{nullptr};
+397         \hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head}->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}=\textcolor{keyword}{nullptr};
+398         \hyperlink{classRecognizer_a123b3de09c7231ee0344328732fa5e13}{tail}=\hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head};
+399         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+400     \}
+401     \textcolor{keywordflow}{else}\{
+402         \hyperlink{classRecognizer_a123b3de09c7231ee0344328732fa5e13}{tail}->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}=\textcolor{keyword}{new} \hyperlink{structlist__cell}{list\_cell};
+403         \hyperlink{classRecognizer_a123b3de09c7231ee0344328732fa5e13}{tail}->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}=\hyperlink{classRecognizer_a123b3de09c7231ee0344328732fa5e13}{tail};
+404         \hyperlink{classRecognizer_a123b3de09c7231ee0344328732fa5e13}{tail}=\hyperlink{classRecognizer_a123b3de09c7231ee0344328732fa5e13}{tail}->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next};
+405         \hyperlink{classRecognizer_a123b3de09c7231ee0344328732fa5e13}{tail}->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}=\textcolor{keyword}{nullptr};
+406         this->\hyperlink{classRecognizer_a537a84cf5e128047ce9940227428e37c}{fill\_cell}(\hyperlink{classRecognizer_a123b3de09c7231ee0344328732fa5e13}{tail},cmd);
+407         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+408     \}
+409 
+410     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+411 \}
+\end{DoxyCode}
+\hypertarget{classRecognizer_a5f7a4de41baedf869d852ffd1cafdc06}{}\index{Recognizer@{Recognizer}!calc\+\_\+expression@{calc\+\_\+expression}}
+\index{calc\+\_\+expression@{calc\+\_\+expression}!Recognizer@{Recognizer}}
+\subsubsection[{calc\+\_\+expression}]{\setlength{\rightskip}{0pt plus 5cm}double Recognizer\+::calc\+\_\+expression (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classRecognizer_a5f7a4de41baedf869d852ffd1cafdc06}
+
+
+calc\+\_\+expression вычисляет данные находящиеся в списке 
+
+\begin{DoxyReturn}{Returns}
+результат вычислений, если обнаружена ошибка вернёт -\/1 
+\end{DoxyReturn}
+
+
+Definition at line 132 of file Recognizer.\+cpp.
+
+
+\begin{DoxyCode}
+133 \{
+134     \hyperlink{structlist__cell}{list\_cell} * p\_current       = \hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head};
+135     \hyperlink{structlist__cell}{list\_cell} * p\_to\_execute    = \hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head};
+136     \textcolor{keywordtype}{int} max\_prioritet           = 0;
+137 
+138     \textcolor{keywordflow}{while}(\hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head}!=\hyperlink{classRecognizer_a123b3de09c7231ee0344328732fa5e13}{tail})
+139     \{
+140         p\_current       = \hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head};
+141         p\_to\_execute    = \hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head};
+142         max\_prioritet   = 0;
+143         \textcolor{keywordflow}{while}(p\_current!=\textcolor{keyword}{nullptr})
+144         \{
+145             \textcolor{keywordflow}{if}(p\_current->\hyperlink{structlist__cell_a983ddfbf8def7d35bcb3baac813ef99c}{function}!=-1 || p\_current->\hyperlink{structlist__cell_a6ca5af01e34cada2fc702e6b5ab256f2}{operation}!=-1)
+146             \{
+147                 \textcolor{keywordflow}{if}(p\_current->\hyperlink{structlist__cell_afd51de45bab516a708417ccc2868595c}{priority}>max\_prioritet)
+148                 \{
+149                     max\_prioritet=p\_current->\hyperlink{structlist__cell_afd51de45bab516a708417ccc2868595c}{priority};
+150                     p\_to\_execute=p\_current;
+151                 \}
+152             \}
+153             p\_current=p\_current->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next};
+154         \}
+155         \textcolor{keywordflow}{if}(\hyperlink{classRecognizer_afc466411f799b54fc7c3e5c8875d78af}{calc\_operand}(p\_to\_execute)==\textcolor{keyword}{false})
+156         \{
+157             \textcolor{keywordflow}{break};
+158             \textcolor{keywordflow}{return} -1;
+159         \}
+160     \}
+161 
+162     \textcolor{keywordflow}{return} \hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value};
+163 \}
+\end{DoxyCode}
+\hypertarget{classRecognizer_afc466411f799b54fc7c3e5c8875d78af}{}\index{Recognizer@{Recognizer}!calc\+\_\+operand@{calc\+\_\+operand}}
+\index{calc\+\_\+operand@{calc\+\_\+operand}!Recognizer@{Recognizer}}
+\subsubsection[{calc\+\_\+operand}]{\setlength{\rightskip}{0pt plus 5cm}bool Recognizer\+::calc\+\_\+operand (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+cell} $\ast$}]{to\+\_\+execute}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classRecognizer_afc466411f799b54fc7c3e5c8875d78af}
+
+
+calc\+\_\+operand идентифицирует операцию и преобразует список заменяя операнд и его аргументы на одну яцейку типа N\+U\+M\+B\+E\+R c приоритетом N\+U\+M 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+\_\+execute} & указатель на операнд (функция или операция) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true если все прошло успешно 
+\end{DoxyReturn}
+
+
+Definition at line 199 of file Recognizer.\+cpp.
+
+
+\begin{DoxyCode}
+200 \{
+201     \textcolor{keywordflow}{if}(to\_execute->\hyperlink{structlist__cell_a983ddfbf8def7d35bcb3baac813ef99c}{function}!=-1)
+202     \{
+203         \textcolor{keywordflow}{switch}(to\_execute->\hyperlink{structlist__cell_a983ddfbf8def7d35bcb3baac813ef99c}{function})
+204         \{
+205             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a27583ac72ebf80402125b171fafa8819}{NSParser::SIN}:
+206                 to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=std::sin(to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->
+      \hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value});
+207                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+208             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+209 
+210             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9ab07effe3bb5c293e74b3ffdf8910e9f7}{NSParser::COS}:
+211                 to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=std::cos(to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->
+      \hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value});
+212                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+213             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+214 
+215             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a14eb2e9650d2c58c2f0a54ce8eb32792}{NSParser::TAN}:
+216                 to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=std::tan(to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->
+      \hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value});
+217                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+218             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+219 
+220             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a25ff62fb6a1e42f59f3b2a70d31ad875}{NSParser::CTAN}:
+221                 to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=std::cos(to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->
+      \hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value})/std::sin(to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value});
+222                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+223             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+224 
+225             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a68ae975169c90b9cb6232cec5bbeebca}{NSParser::ASIN}:
+226                 to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=std::asin(to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->
+      \hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value});
+227                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+228             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+229 
+230             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a6e166b7b8ca1eb0877e5906ec1433bb2}{NSParser::ACOS}:
+231                 to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=std::acos(to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->
+      \hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value});
+232                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+233             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+234 
+235             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9ae049848210127b105cfc43deae883072}{NSParser::SIGN}:
+236                 to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}= - (to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value});
+237                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+238             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+239 
+240             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9ae8c0916769d2afe15d9edacaa3346851}{NSParser::MODUL}:
+241                 to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=std::fabs(to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->
+      \hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value});
+242                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+243             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+244 
+245             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a9667a30f73605cf32db6c8c94ab528da}{NSParser::LOG}:
+246                 to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=std::log10(to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->
+      \hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value});
+247                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+248                 \textcolor{comment}{//remove\_from\_list(to\_execute->next->next);}
+249             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+250 
+251             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9aa1683bf9eb7c51325f4c14776cb1063b}{NSParser::LN}:
+252                 to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=std::log(to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->
+      \hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value});
+253                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+254             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+255 
+256             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a189aff615329a6c73a15282170e4aefb}{NSParser::EXP}:
+257                 to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=std::exp(to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->
+      \hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value});
+258                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+259             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+260 
+261             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a4051b90258c729c4fdd863f44041a25b}{NSParser::SQRT}:
+262                 to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=std::sqrt(to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->
+      \hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value});
+263                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+264             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+265 
+266             \textcolor{comment}{//default:}
+267                 \textcolor{comment}{//std::cout<<"\_\_ERROR\_\_: IN <Recognizer::calc\_operand()> UNEXPECTED FUNCTION VERB\(\backslash\)n";}
+268 
+269 
+270         \}
+271     \}
+272     \textcolor{keywordflow}{if}(to\_execute->\hyperlink{structlist__cell_a6ca5af01e34cada2fc702e6b5ab256f2}{operation}!=-1)
+273     \{
+274 
+275         \textcolor{comment}{//унарный минус}
+276         \textcolor{keywordflow}{if}(to\_execute->\hyperlink{structlist__cell_a6ca5af01e34cada2fc702e6b5ab256f2}{operation}==\textcolor{charliteral}{'-'} &&
+277                 (to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev} == \textcolor{keyword}{nullptr}    ||
+278                  to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_a983ddfbf8def7d35bcb3baac813ef99c}{function}!=-1 ||
+279                  to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_a6ca5af01e34cada2fc702e6b5ab256f2}{operation}!=-1)
+280                 )
+281         \{
+282             to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=-to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value};
+283             \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+284             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+285         \}
+286 
+287         \textcolor{keywordflow}{if}(to\_execute->\hyperlink{structlist__cell_a6ca5af01e34cada2fc702e6b5ab256f2}{operation} == \textcolor{charliteral}{'!'})
+288         \{
+289             \textcolor{keywordflow}{if}(to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value} < 0 || to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}==\textcolor{keyword}{nullptr})
+290                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+291             to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=\hyperlink{classRecognizer_a68bb9a9f6b35666d4bf153691cc83294}{fact}(\textcolor{keywordtype}{int}(to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->
+      \hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}));
+292             \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+293             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+294         \}
+295 
+296 
+297         \textcolor{keywordflow}{if}(to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}==\textcolor{keyword}{nullptr} || to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}==\textcolor{keyword}{nullptr}) \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+298         \textcolor{keywordflow}{switch}(to\_execute->\hyperlink{structlist__cell_a6ca5af01e34cada2fc702e6b5ab256f2}{operation})
+299         \{
+300             \textcolor{keywordflow}{case} \textcolor{charliteral}{'+'}:
+301                 to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value} + to\_execute->
+      \hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value};
+302                 to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_afd51de45bab516a708417ccc2868595c}{priority}=0;
+303                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next});
+304                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+305             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+306 
+307             \textcolor{keywordflow}{case} \textcolor{charliteral}{'-'}:
+308                 \textcolor{comment}{//минус на два аргумента}
+309                 to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value} - to\_execute->
+      \hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value};
+310                 to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_afd51de45bab516a708417ccc2868595c}{priority}=0;
+311                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next});
+312                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+313                 \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+314 
+315             \textcolor{keywordflow}{case} \textcolor{charliteral}{'*'}:
+316                 to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value} * to\_execute->
+      \hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value};
+317                 to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_afd51de45bab516a708417ccc2868595c}{priority}=0;
+318                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next});
+319                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+320             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+321 
+322             \textcolor{keywordflow}{case} \textcolor{charliteral}{'/'}:
+323                 to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value} / to\_execute->
+      \hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value};
+324                 to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_afd51de45bab516a708417ccc2868595c}{priority}=0;
+325                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next});
+326                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+327             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+328 
+329             \textcolor{keywordflow}{case} \textcolor{charliteral}{'^'}:
+330                 to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=std::pow(to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->
+      \hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value},to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value});
+331                 to\_execute->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_afd51de45bab516a708417ccc2868595c}{priority}=0;
+332                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next});
+333                 \hyperlink{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{remove\_from\_list}(to\_execute);
+334             \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+335 
+336            \textcolor{comment}{// default:}
+337                 \textcolor{comment}{//std::cout<<"\_\_ERROR\_\_: IN <Recognizer::calc\_operand()> UNEXPECTED OPERATION VERB\(\backslash\)n";}
+338         \}
+339     \}
+340     \textcolor{comment}{//std::cout<<"\_\_ERROR\_\_: IN <Recognizer::calc\_operand()> UNEXPECTED VERB\(\backslash\)n";}
+341     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+342 \}
+\end{DoxyCode}
+\hypertarget{classRecognizer_a26b489b7440f205ebcd2e0ec5ddde7b0}{}\index{Recognizer@{Recognizer}!clear\+\_\+list@{clear\+\_\+list}}
+\index{clear\+\_\+list@{clear\+\_\+list}!Recognizer@{Recognizer}}
+\subsubsection[{clear\+\_\+list}]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer\+::clear\+\_\+list (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classRecognizer_a26b489b7440f205ebcd2e0ec5ddde7b0}
+
+
+clear\+\_\+list удаление текущего списка 
+
+
+
+Definition at line 13 of file Recognizer.\+cpp.
+
+
+\begin{DoxyCode}
+14 \{
+15     \hyperlink{structlist__cell}{list\_cell} * tmp=\hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head};
+16     \textcolor{keywordflow}{while}(\hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head}!=\textcolor{keyword}{nullptr})
+17     \{
+18         \hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head}=\hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head}->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next};
+19         tmp->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}=\textcolor{keyword}{nullptr};
+20         tmp->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}=\textcolor{keyword}{nullptr};
+21         \textcolor{keyword}{delete}(tmp);
+22         tmp=\hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head};
+23     \}
+24 \}
+\end{DoxyCode}
+\hypertarget{classRecognizer_a68bb9a9f6b35666d4bf153691cc83294}{}\index{Recognizer@{Recognizer}!fact@{fact}}
+\index{fact@{fact}!Recognizer@{Recognizer}}
+\subsubsection[{fact}]{\setlength{\rightskip}{0pt plus 5cm}double Recognizer\+::fact (
+\begin{DoxyParamCaption}
+\item[{int}]{N}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classRecognizer_a68bb9a9f6b35666d4bf153691cc83294}
+
+
+fact вычисляет факториал от числа 
+
+
+\begin{DoxyParams}{Parameters}
+{\em N} & число для взятия факториала \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+если N$<$0 вернёт ноль, если N$>$500 вернет 0 
+\end{DoxyReturn}
+
+
+Definition at line 344 of file Recognizer.\+cpp.
+
+
+\begin{DoxyCode}
+345 \{
+346     \textcolor{keywordflow}{if}(N>=500) \textcolor{keywordflow}{return} 0;
+347 
+348     \textcolor{keywordflow}{if}(N < 0)
+349         \textcolor{keywordflow}{return} 0;
+350     \textcolor{keywordflow}{if} (N == 0)
+351         \textcolor{keywordflow}{return} 1;
+352     \textcolor{keywordflow}{else}
+353         \textcolor{keywordflow}{return} N * \hyperlink{classRecognizer_a68bb9a9f6b35666d4bf153691cc83294}{fact}(N - 1);
+354 \}
+\end{DoxyCode}
+\hypertarget{classRecognizer_a537a84cf5e128047ce9940227428e37c}{}\index{Recognizer@{Recognizer}!fill\+\_\+cell@{fill\+\_\+cell}}
+\index{fill\+\_\+cell@{fill\+\_\+cell}!Recognizer@{Recognizer}}
+\subsubsection[{fill\+\_\+cell}]{\setlength{\rightskip}{0pt plus 5cm}bool Recognizer\+::fill\+\_\+cell (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+cell} $\ast$}]{cell, }
+\item[{{\bf N\+S\+Parser\+::cell\+\_\+verb} \&}]{cmd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classRecognizer_a537a84cf5e128047ce9940227428e37c}
+
+
+fill\+\_\+cell заполнение ячейки списка cell переданными значениями из cmd, установка приоритета лексеме 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & указатель на еще пустую ячейку списка \\
+\hline
+{\em cmd} & команда от \hyperlink{classParser}{Parser} с указаниями данных для построения ячейки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 26 of file Recognizer.\+cpp.
+
+
+\begin{DoxyCode}
+27 \{
+28     cell->\hyperlink{structlist__cell_a983ddfbf8def7d35bcb3baac813ef99c}{function}=cmd.\hyperlink{structNSParser_1_1cell__verb_ae01137555ad15a3c3cd22018588c5c1d}{function};
+29     cell->\hyperlink{structlist__cell_a6ca5af01e34cada2fc702e6b5ab256f2}{operation}=cmd.\hyperlink{structNSParser_1_1cell__verb_a41d5d55651956c9d353f33b1aedb1fb2}{operation};
+30     cell->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}=cmd.\hyperlink{structNSParser_1_1cell__verb_a8b0aa5da814292043c02ac6bd7544a6f}{value};
+31     cell->\hyperlink{structlist__cell_a291b26b04a2dacb522b0c6e781202c3c}{cmd}=cmd.\hyperlink{structNSParser_1_1cell__verb_a71c80dd322f510111134723368aa4470}{cod\_cmd};
+32     cell->\hyperlink{structlist__cell_afd51de45bab516a708417ccc2868595c}{priority}=this->\hyperlink{classRecognizer_abb82141d2131cc8d2cdbdcbd27e481e2}{get\_priority}(cmd);
+33     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+34 \}
+\end{DoxyCode}
+\hypertarget{classRecognizer_abb82141d2131cc8d2cdbdcbd27e481e2}{}\index{Recognizer@{Recognizer}!get\+\_\+priority@{get\+\_\+priority}}
+\index{get\+\_\+priority@{get\+\_\+priority}!Recognizer@{Recognizer}}
+\subsubsection[{get\+\_\+priority}]{\setlength{\rightskip}{0pt plus 5cm}int Recognizer\+::get\+\_\+priority (
+\begin{DoxyParamCaption}
+\item[{{\bf N\+S\+Parser\+::cell\+\_\+verb} \&}]{cmd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classRecognizer_abb82141d2131cc8d2cdbdcbd27e481e2}
+
+
+get\+\_\+priority получение приоритеты операции по её типу 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & структура содержащая информацию о лексеме \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+приоритет операции 
+\end{DoxyReturn}
+
+
+Definition at line 36 of file Recognizer.\+cpp.
+
+
+\begin{DoxyCode}
+37 \{
+38     \textcolor{keywordflow}{if}(cmd.\hyperlink{structNSParser_1_1cell__verb_ae01137555ad15a3c3cd22018588c5c1d}{function}!=-1)
+39     \{
+40         \textcolor{keywordflow}{return} this->\hyperlink{classRecognizer_a64d6c41524ae1269968052d3af172221}{current\_prioryty}+\hyperlink{namespaceNSParser_afd7e2b62653b81d596e43a3d5855a972a1e3df8998d8d7a2a9b5b1f34f4333049}{NSParser::FUNC};
+41     \}
+42     \textcolor{keywordflow}{if}(cmd.\hyperlink{structNSParser_1_1cell__verb_a41d5d55651956c9d353f33b1aedb1fb2}{operation}!=-1)
+43     \{
+44         \textcolor{keywordflow}{switch} (cmd.\hyperlink{structNSParser_1_1cell__verb_a41d5d55651956c9d353f33b1aedb1fb2}{operation}) \{
+45             \textcolor{keywordflow}{case} \textcolor{charliteral}{'+'}:\textcolor{keywordflow}{case} \textcolor{charliteral}{'-'}:  \textcolor{keywordflow}{return} this->\hyperlink{classRecognizer_a64d6c41524ae1269968052d3af172221}{current\_prioryty}+
+      \hyperlink{namespaceNSParser_afd7e2b62653b81d596e43a3d5855a972a142529513e5298cbe32b9f28b952cadd}{NSParser::PLUS\_MINUS};
+46             \textcolor{keywordflow}{case} \textcolor{charliteral}{'*'}:\textcolor{keywordflow}{case} \textcolor{charliteral}{'/'}:  \textcolor{keywordflow}{return} this->\hyperlink{classRecognizer_a64d6c41524ae1269968052d3af172221}{current\_prioryty}+
+      \hyperlink{namespaceNSParser_afd7e2b62653b81d596e43a3d5855a972a8dcf3f9ea34b03ca9562352bbab49ba6}{NSParser::MUL\_DIVIDE};
+47             \textcolor{keywordflow}{case} \textcolor{charliteral}{'^'}:           \textcolor{keywordflow}{return} this->\hyperlink{classRecognizer_a64d6c41524ae1269968052d3af172221}{current\_prioryty}+
+      \hyperlink{namespaceNSParser_afd7e2b62653b81d596e43a3d5855a972a5e7d64ac09c749f5b5bdc6f7958c7f8f}{NSParser::POW};
+48             \textcolor{keywordflow}{case} \textcolor{charliteral}{'!'}:           \textcolor{keywordflow}{return} this->\hyperlink{classRecognizer_a64d6c41524ae1269968052d3af172221}{current\_prioryty}+
+      \hyperlink{namespaceNSParser_afd7e2b62653b81d596e43a3d5855a972a6f49e73e5568214b10fd989e82a150f5}{NSParser::FACT};
+49             \textcolor{keywordflow}{default} :
+50                 \textcolor{comment}{//std::cout<<"ILLEGAL OPERATION IN <Recognizer::get\_priority>\(\backslash\)n";}
+51                 \textcolor{keywordflow}{return} -1;
+52         \}
+53     \}
+54     \textcolor{keywordflow}{if}(cmd.\hyperlink{structNSParser_1_1cell__verb_a41d5d55651956c9d353f33b1aedb1fb2}{operation}==-1 && cmd.\hyperlink{structNSParser_1_1cell__verb_ae01137555ad15a3c3cd22018588c5c1d}{function}==-1)
+55     \{
+56         \textcolor{keywordflow}{return} this->\hyperlink{classRecognizer_a64d6c41524ae1269968052d3af172221}{current\_prioryty}+\hyperlink{namespaceNSParser_afd7e2b62653b81d596e43a3d5855a972aca7fe00511689349069311cbd318504c}{NSParser::NUM};
+57     \}
+58     \textcolor{comment}{//std::cout<<"ILLEGAL input gata IN <Recognizer::get\_priority>\(\backslash\)n";}
+59     \textcolor{keywordflow}{return} -1;
+60 \}
+\end{DoxyCode}
+\hypertarget{classRecognizer_a31399be9b5e3eaf37dc90a749ed771bb}{}\index{Recognizer@{Recognizer}!get\+\_\+result@{get\+\_\+result}}
+\index{get\+\_\+result@{get\+\_\+result}!Recognizer@{Recognizer}}
+\subsubsection[{get\+\_\+result}]{\setlength{\rightskip}{0pt plus 5cm}double Recognizer\+::get\+\_\+result (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classRecognizer_a31399be9b5e3eaf37dc90a749ed771bb}
+
+
+get\+\_\+result вернетрезультат вычислений 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 413 of file Recognizer.\+cpp.
+
+
+\begin{DoxyCode}
+414 \{
+415     \textcolor{keywordflow}{return} \hyperlink{classRecognizer_a6b70dee4d16fa7a8dfa6a20ed51619c0}{reselt\_calculation};
+416 \}
+\end{DoxyCode}
+\hypertarget{classRecognizer_aaed9d9a4c9da3c87bead97c2bdff67ee}{}\index{Recognizer@{Recognizer}!init@{init}}
+\index{init@{init}!Recognizer@{Recognizer}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer\+::init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classRecognizer_aaed9d9a4c9da3c87bead97c2bdff67ee}
+
+
+init инициация значений по умолчанию для начала работы и сознания нового списка 
+
+
+
+Definition at line 5 of file Recognizer.\+cpp.
+
+
+\begin{DoxyCode}
+6 \{
+7     \hyperlink{classRecognizer_a6b70dee4d16fa7a8dfa6a20ed51619c0}{reselt\_calculation}=-666;
+8     \hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head}=\textcolor{keyword}{nullptr};
+9     \hyperlink{classRecognizer_a123b3de09c7231ee0344328732fa5e13}{tail}=\textcolor{keyword}{nullptr};
+10     \hyperlink{classRecognizer_a64d6c41524ae1269968052d3af172221}{current\_prioryty}=0;
+11 \}
+\end{DoxyCode}
+\hypertarget{classRecognizer_af0e40e5fb733a601751f97568aaeb856}{}\index{Recognizer@{Recognizer}!print\+\_\+cell\+\_\+list@{print\+\_\+cell\+\_\+list}}
+\index{print\+\_\+cell\+\_\+list@{print\+\_\+cell\+\_\+list}!Recognizer@{Recognizer}}
+\subsubsection[{print\+\_\+cell\+\_\+list}]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer\+::print\+\_\+cell\+\_\+list (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+cell} $\ast$}]{cell}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}\label{classRecognizer_af0e40e5fb733a601751f97568aaeb856}
+
+
+print\+\_\+cell\+\_\+list вывод переданной ячейки списка 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cell} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 74 of file Recognizer.\+cpp.
+
+
+\begin{DoxyCode}
+75 \{
+76     std::cout<<\textcolor{stringliteral}{"\{"};
+77     \textcolor{keywordflow}{if}(cell->\hyperlink{structlist__cell_a983ddfbf8def7d35bcb3baac813ef99c}{function}!=-1)
+78     \{
+79         std::cout<<\textcolor{stringliteral}{"Function:\(\backslash\)t"}<<cell->\hyperlink{structlist__cell_a983ddfbf8def7d35bcb3baac813ef99c}{function}<<\textcolor{stringliteral}{","};
+80         \textcolor{keywordflow}{switch} (cell->\hyperlink{structlist__cell_a983ddfbf8def7d35bcb3baac813ef99c}{function})
+81         \{
+82             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a9667a30f73605cf32db6c8c94ab528da}{NSParser::LOG}:
+83                 std::cout<<\textcolor{stringliteral}{"Log,"};
+84                 \textcolor{keywordflow}{break};
+85             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9aa1683bf9eb7c51325f4c14776cb1063b}{NSParser::LN}:
+86                 std::cout<<\textcolor{stringliteral}{"Ln,"};
+87                 \textcolor{keywordflow}{break};
+88             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a27583ac72ebf80402125b171fafa8819}{NSParser::SIN}:
+89                 std::cout<<\textcolor{stringliteral}{"Sin,"};
+90                 \textcolor{keywordflow}{break};
+91             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9ab07effe3bb5c293e74b3ffdf8910e9f7}{NSParser::COS}:
+92                 std::cout<<\textcolor{stringliteral}{"Cos,"};
+93                 \textcolor{keywordflow}{break};
+94             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a68ae975169c90b9cb6232cec5bbeebca}{NSParser::ASIN}:
+95                 std::cout<<\textcolor{stringliteral}{"Asin,"};
+96                 \textcolor{keywordflow}{break};
+97             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a6e166b7b8ca1eb0877e5906ec1433bb2}{NSParser::ACOS}:
+98                 std::cout<<\textcolor{stringliteral}{"Acos,"};
+99                 \textcolor{keywordflow}{break};
+100             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a14eb2e9650d2c58c2f0a54ce8eb32792}{NSParser::TAN}:
+101                 std::cout<<\textcolor{stringliteral}{"Tan,"};
+102                 \textcolor{keywordflow}{break};
+103             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a25ff62fb6a1e42f59f3b2a70d31ad875}{NSParser::CTAN}:
+104                 std::cout<<\textcolor{stringliteral}{"Ctan,"};
+105                 \textcolor{keywordflow}{break};
+106             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9ae049848210127b105cfc43deae883072}{NSParser::SIGN}:
+107                 std::cout<<\textcolor{stringliteral}{"Sign,"};
+108                 \textcolor{keywordflow}{break};
+109             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9ae8c0916769d2afe15d9edacaa3346851}{NSParser::MODUL}:
+110                 std::cout<<\textcolor{stringliteral}{"Modul,"};
+111                 \textcolor{keywordflow}{break};
+112             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a4051b90258c729c4fdd863f44041a25b}{NSParser::SQRT}:
+113                 std::cout<<\textcolor{stringliteral}{"Sqrt,"};
+114                 \textcolor{keywordflow}{break};
+115             \textcolor{keywordflow}{case} \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a189aff615329a6c73a15282170e4aefb}{NSParser::EXP}:
+116                 std::cout<<\textcolor{stringliteral}{"Exp,"};
+117                 \textcolor{keywordflow}{break};
+118         \}
+119     \}
+120     \textcolor{keywordflow}{if}(cell->\hyperlink{structlist__cell_a6ca5af01e34cada2fc702e6b5ab256f2}{operation}!=-1)
+121     \{
+122         std::cout<<\textcolor{stringliteral}{"Operation:\(\backslash\)t"}<<cell->\hyperlink{structlist__cell_a6ca5af01e34cada2fc702e6b5ab256f2}{operation}<<\textcolor{stringliteral}{","};
+123     \}
+124     \textcolor{keywordflow}{if}(cell->\hyperlink{structlist__cell_a6ca5af01e34cada2fc702e6b5ab256f2}{operation}==-1 && cell->\hyperlink{structlist__cell_a983ddfbf8def7d35bcb3baac813ef99c}{function}==-1)
+125     \{
+126         std::cout<<\textcolor{stringliteral}{"Number:\(\backslash\)t"}<<cell->\hyperlink{structlist__cell_a5f4d22d779ccc8d4fcf59b2ac35950ec}{value}<<\textcolor{stringliteral}{","};
+127     \}
+128     std::cout<<\textcolor{stringliteral}{"Prioritet:\(\backslash\)t"}<<cell->\hyperlink{structlist__cell_afd51de45bab516a708417ccc2868595c}{priority};
+129     std::cout<<\textcolor{stringliteral}{"\}\(\backslash\)n"};
+130 \}
+\end{DoxyCode}
+\hypertarget{classRecognizer_ae769340001160be53c33f440ddea8be7}{}\index{Recognizer@{Recognizer}!print\+\_\+expression\+\_\+list@{print\+\_\+expression\+\_\+list}}
+\index{print\+\_\+expression\+\_\+list@{print\+\_\+expression\+\_\+list}!Recognizer@{Recognizer}}
+\subsubsection[{print\+\_\+expression\+\_\+list}]{\setlength{\rightskip}{0pt plus 5cm}void Recognizer\+::print\+\_\+expression\+\_\+list (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [private]}}\label{classRecognizer_ae769340001160be53c33f440ddea8be7}
+
+
+print\+\_\+expression\+\_\+list вывод списка для вычисления на экран 
+
+
+
+Definition at line 62 of file Recognizer.\+cpp.
+
+
+\begin{DoxyCode}
+63 \{
+64     \hyperlink{structlist__cell}{list\_cell} * tmp=\hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head};
+65 
+66     std::cout<<\textcolor{stringliteral}{"\{\(\backslash\)n"};
+67     \textcolor{keywordflow}{for}(;tmp!=\textcolor{keyword}{nullptr};tmp=tmp->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next})
+68     \{
+69         this->\hyperlink{classRecognizer_af0e40e5fb733a601751f97568aaeb856}{print\_cell\_list}(tmp);
+70     \}
+71     std::cout<<\textcolor{stringliteral}{"\}\(\backslash\)n"};
+72 \}
+\end{DoxyCode}
+\hypertarget{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}{}\index{Recognizer@{Recognizer}!remove\+\_\+from\+\_\+list@{remove\+\_\+from\+\_\+list}}
+\index{remove\+\_\+from\+\_\+list@{remove\+\_\+from\+\_\+list}!Recognizer@{Recognizer}}
+\subsubsection[{remove\+\_\+from\+\_\+list}]{\setlength{\rightskip}{0pt plus 5cm}bool Recognizer\+::remove\+\_\+from\+\_\+list (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+cell} $\ast$}]{to\+\_\+delete}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classRecognizer_ab5630edfbf00dec3cd5f2a72aebd6ecb}
+
+
+remove\+\_\+from\+\_\+list удаление элемента списка по указателю 
+
+
+\begin{DoxyParams}{Parameters}
+{\em to\+\_\+delete} & указатель на ячейку списка, которая подлежит удалению \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true если всё прошло успешно, false усли возникла ошибка 
+\end{DoxyReturn}
+
+
+Definition at line 165 of file Recognizer.\+cpp.
+
+
+\begin{DoxyCode}
+166 \{
+167     \textcolor{keywordflow}{if}(\hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head}==\textcolor{keyword}{nullptr})
+168     \{
+169         \textcolor{comment}{//std::cout<<"\_\_ERROR\_\_: IN <Recognizer::remove\_from\_list()> EMPTY\_LIST\(\backslash\)n";}
+170         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+171     \}
+172     \textcolor{keywordflow}{if}(to\_delete==\hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head})
+173     \{
+174         \hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head}=\hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head}->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next};
+175         \hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head}->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}=\textcolor{keyword}{nullptr};
+176         \textcolor{keyword}{delete} to\_delete;
+177         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+178     \}
+179     \textcolor{keywordflow}{if}(to\_delete==\hyperlink{classRecognizer_a123b3de09c7231ee0344328732fa5e13}{tail})
+180     \{
+181         \hyperlink{classRecognizer_a123b3de09c7231ee0344328732fa5e13}{tail}=\hyperlink{classRecognizer_a123b3de09c7231ee0344328732fa5e13}{tail}->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev};
+182         \hyperlink{classRecognizer_a123b3de09c7231ee0344328732fa5e13}{tail}->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}=\textcolor{keyword}{nullptr};
+183         \textcolor{keyword}{delete} to\_delete;
+184         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+185     \}
+186     \textcolor{keywordflow}{if}(to\_delete!=\hyperlink{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{head} && to\_delete!=\hyperlink{classRecognizer_a123b3de09c7231ee0344328732fa5e13}{tail})
+187     \{
+188         to\_delete->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}=to\_delete->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next};
+189         to\_delete->\hyperlink{structlist__cell_a09c7a56909013720bcf26fa3208e6aa0}{next}->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev}=to\_delete->\hyperlink{structlist__cell_a5a88b337b902b21685daa8ab35f05c5b}{prev};
+190         \textcolor{keyword}{delete} to\_delete;
+191         \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+192     \}
+193     \textcolor{comment}{//std::cout<<"\_\_ERROR\_\_: IN <Recognizer::remove\_from\_list()> ILLEGAL\_POINTER\(\backslash\)n";}
+194     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+195 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classRecognizer_a64d6c41524ae1269968052d3af172221}{}\index{Recognizer@{Recognizer}!current\+\_\+prioryty@{current\+\_\+prioryty}}
+\index{current\+\_\+prioryty@{current\+\_\+prioryty}!Recognizer@{Recognizer}}
+\subsubsection[{current\+\_\+prioryty}]{\setlength{\rightskip}{0pt plus 5cm}int Recognizer\+::current\+\_\+prioryty =0\hspace{0.3cm}{\ttfamily [private]}}\label{classRecognizer_a64d6c41524ae1269968052d3af172221}
+
+
+Definition at line 42 of file Recognizer.\+h.
+
+\hypertarget{classRecognizer_a57472dc57c50868b264c1aad83499e8c}{}\index{Recognizer@{Recognizer}!head@{head}}
+\index{head@{head}!Recognizer@{Recognizer}}
+\subsubsection[{head}]{\setlength{\rightskip}{0pt plus 5cm}{\bf list\+\_\+cell}$\ast$ Recognizer\+::head =nullptr\hspace{0.3cm}{\ttfamily [private]}}\label{classRecognizer_a57472dc57c50868b264c1aad83499e8c}
+
+
+Definition at line 40 of file Recognizer.\+h.
+
+\hypertarget{classRecognizer_a6b70dee4d16fa7a8dfa6a20ed51619c0}{}\index{Recognizer@{Recognizer}!reselt\+\_\+calculation@{reselt\+\_\+calculation}}
+\index{reselt\+\_\+calculation@{reselt\+\_\+calculation}!Recognizer@{Recognizer}}
+\subsubsection[{reselt\+\_\+calculation}]{\setlength{\rightskip}{0pt plus 5cm}double Recognizer\+::reselt\+\_\+calculation =-\/666\hspace{0.3cm}{\ttfamily [private]}}\label{classRecognizer_a6b70dee4d16fa7a8dfa6a20ed51619c0}
+
+
+Definition at line 39 of file Recognizer.\+h.
+
+\hypertarget{classRecognizer_a123b3de09c7231ee0344328732fa5e13}{}\index{Recognizer@{Recognizer}!tail@{tail}}
+\index{tail@{tail}!Recognizer@{Recognizer}}
+\subsubsection[{tail}]{\setlength{\rightskip}{0pt plus 5cm}{\bf list\+\_\+cell}$\ast$ Recognizer\+::tail =nullptr\hspace{0.3cm}{\ttfamily [private]}}\label{classRecognizer_a123b3de09c7231ee0344328732fa5e13}
+
+
+Definition at line 41 of file Recognizer.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Recognizer_8h}{Recognizer.\+h}\item 
+\hyperlink{Recognizer_8cpp}{Recognizer.\+cpp}\end{DoxyCompactItemize}

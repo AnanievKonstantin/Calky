@@ -1,0 +1,190 @@
+\hypertarget{classTextEdit}{}\section{Text\+Edit Class Reference}
+\label{classTextEdit}\index{Text\+Edit@{Text\+Edit}}
+
+
+The \hyperlink{classTextEdit}{Text\+Edit} class расширение Q\+Line\+Edit для возможности получения данных из текстового поля и их добавления по средствам сигналов.  
+
+
+
+
+{\ttfamily \#include $<$Textedit.\+h$>$}
+
+
+
+Inheritance diagram for Text\+Edit\+:
+% FIG 0
+
+
+Collaboration diagram for Text\+Edit\+:
+% FIG 1
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classTextEdit_a9871f685d4a3b4b25ac1355d51d3acdf}{slot\+\_\+append\+\_\+text} (Q\+String text)
+\begin{DoxyCompactList}\small\item\em slot\+\_\+append\+\_\+text добавление текста к существующему в текстовой линии. Жлбавление с права. \end{DoxyCompactList}\item 
+void \hyperlink{classTextEdit_a046965b6b97175794cf24136c1c5dc00}{slot\+\_\+call\+\_\+signal\+\_\+send\+\_\+text} ()
+\begin{DoxyCompactList}\small\item\em slot\+\_\+call\+\_\+signal\+\_\+send\+\_\+text вызов сигнала send\+\_\+text \end{DoxyCompactList}\item 
+void \hyperlink{classTextEdit_a4251b097753f2403b41da91e9ba5daa4}{slot\+\_\+call\+\_\+send\+\_\+text\+\_\+in\+\_\+memory} ()
+\begin{DoxyCompactList}\small\item\em slot\+\_\+call\+\_\+signal\+\_\+send\+\_\+text вызов сигнала send\+\_\+text\+\_\+in\+\_\+memory \end{DoxyCompactList}\item 
+void \hyperlink{classTextEdit_af16f1dd8808dd97f52783c614073ae12}{slot\+\_\+clear\+\_\+text} ()
+\begin{DoxyCompactList}\small\item\em slot\+\_\+clear\+\_\+text слот для вызова отчистки текстового поля \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classTextEdit_acfe29a4feed864dbcf120ce4474261a1}{send\+\_\+text} (Q\+String)
+\begin{DoxyCompactList}\small\item\em send\+\_\+text передача текста по средствам сигнала \end{DoxyCompactList}\item 
+void \hyperlink{classTextEdit_a8661a31d1ac4c2bb1c209b085883bac7}{send\+\_\+text\+\_\+in\+\_\+memory} (Q\+String)
+\begin{DoxyCompactList}\small\item\em send\+\_\+text\+\_\+in\+\_\+memory передача текста по средствам сигнала. Сигнал нужен для отсылки данных в память \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTextEdit_a32f19da5c4b8a0fd0d4404f21a1ea2db}{Text\+Edit} (Q\+Widget $\ast$parent=0)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classTextEdit}{Text\+Edit} class расширение Q\+Line\+Edit для возможности получения данных из текстового поля и их добавления по средствам сигналов. 
+
+Definition at line 11 of file Textedit.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classTextEdit_a32f19da5c4b8a0fd0d4404f21a1ea2db}{}\index{Text\+Edit@{Text\+Edit}!Text\+Edit@{Text\+Edit}}
+\index{Text\+Edit@{Text\+Edit}!Text\+Edit@{Text\+Edit}}
+\subsubsection[{Text\+Edit}]{\setlength{\rightskip}{0pt plus 5cm}Text\+Edit\+::\+Text\+Edit (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{classTextEdit_a32f19da5c4b8a0fd0d4404f21a1ea2db}
+
+
+Definition at line 3 of file Textedit.\+cpp.
+
+
+\begin{DoxyCode}
+3                                   :
+4     QLineEdit(parent)
+5 \{
+6 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classTextEdit_acfe29a4feed864dbcf120ce4474261a1}{}\index{Text\+Edit@{Text\+Edit}!send\+\_\+text@{send\+\_\+text}}
+\index{send\+\_\+text@{send\+\_\+text}!Text\+Edit@{Text\+Edit}}
+\subsubsection[{send\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+Edit\+::send\+\_\+text (
+\begin{DoxyParamCaption}
+\item[{Q\+String}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classTextEdit_acfe29a4feed864dbcf120ce4474261a1}
+
+
+send\+\_\+text передача текста по средствам сигнала 
+
+\hypertarget{classTextEdit_a8661a31d1ac4c2bb1c209b085883bac7}{}\index{Text\+Edit@{Text\+Edit}!send\+\_\+text\+\_\+in\+\_\+memory@{send\+\_\+text\+\_\+in\+\_\+memory}}
+\index{send\+\_\+text\+\_\+in\+\_\+memory@{send\+\_\+text\+\_\+in\+\_\+memory}!Text\+Edit@{Text\+Edit}}
+\subsubsection[{send\+\_\+text\+\_\+in\+\_\+memory}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+Edit\+::send\+\_\+text\+\_\+in\+\_\+memory (
+\begin{DoxyParamCaption}
+\item[{Q\+String}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\label{classTextEdit_a8661a31d1ac4c2bb1c209b085883bac7}
+
+
+send\+\_\+text\+\_\+in\+\_\+memory передача текста по средствам сигнала. Сигнал нужен для отсылки данных в память 
+
+\hypertarget{classTextEdit_a9871f685d4a3b4b25ac1355d51d3acdf}{}\index{Text\+Edit@{Text\+Edit}!slot\+\_\+append\+\_\+text@{slot\+\_\+append\+\_\+text}}
+\index{slot\+\_\+append\+\_\+text@{slot\+\_\+append\+\_\+text}!Text\+Edit@{Text\+Edit}}
+\subsubsection[{slot\+\_\+append\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+Edit\+::slot\+\_\+append\+\_\+text (
+\begin{DoxyParamCaption}
+\item[{Q\+String}]{text}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classTextEdit_a9871f685d4a3b4b25ac1355d51d3acdf}
+
+
+slot\+\_\+append\+\_\+text добавление текста к существующему в текстовой линии. Жлбавление с права. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 8 of file Textedit.\+cpp.
+
+
+\begin{DoxyCode}
+9 \{
+10     this->insert(text);
+11 \}
+\end{DoxyCode}
+\hypertarget{classTextEdit_a4251b097753f2403b41da91e9ba5daa4}{}\index{Text\+Edit@{Text\+Edit}!slot\+\_\+call\+\_\+send\+\_\+text\+\_\+in\+\_\+memory@{slot\+\_\+call\+\_\+send\+\_\+text\+\_\+in\+\_\+memory}}
+\index{slot\+\_\+call\+\_\+send\+\_\+text\+\_\+in\+\_\+memory@{slot\+\_\+call\+\_\+send\+\_\+text\+\_\+in\+\_\+memory}!Text\+Edit@{Text\+Edit}}
+\subsubsection[{slot\+\_\+call\+\_\+send\+\_\+text\+\_\+in\+\_\+memory}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+Edit\+::slot\+\_\+call\+\_\+send\+\_\+text\+\_\+in\+\_\+memory (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classTextEdit_a4251b097753f2403b41da91e9ba5daa4}
+
+
+slot\+\_\+call\+\_\+signal\+\_\+send\+\_\+text вызов сигнала send\+\_\+text\+\_\+in\+\_\+memory 
+
+
+
+Definition at line 18 of file Textedit.\+cpp.
+
+
+\begin{DoxyCode}
+19 \{
+20     emit this->\hyperlink{classTextEdit_a8661a31d1ac4c2bb1c209b085883bac7}{send\_text\_in\_memory}(this->text());
+21 \}
+\end{DoxyCode}
+\hypertarget{classTextEdit_a046965b6b97175794cf24136c1c5dc00}{}\index{Text\+Edit@{Text\+Edit}!slot\+\_\+call\+\_\+signal\+\_\+send\+\_\+text@{slot\+\_\+call\+\_\+signal\+\_\+send\+\_\+text}}
+\index{slot\+\_\+call\+\_\+signal\+\_\+send\+\_\+text@{slot\+\_\+call\+\_\+signal\+\_\+send\+\_\+text}!Text\+Edit@{Text\+Edit}}
+\subsubsection[{slot\+\_\+call\+\_\+signal\+\_\+send\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+Edit\+::slot\+\_\+call\+\_\+signal\+\_\+send\+\_\+text (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classTextEdit_a046965b6b97175794cf24136c1c5dc00}
+
+
+slot\+\_\+call\+\_\+signal\+\_\+send\+\_\+text вызов сигнала send\+\_\+text 
+
+
+
+Definition at line 13 of file Textedit.\+cpp.
+
+
+\begin{DoxyCode}
+14 \{
+15     emit this->\hyperlink{classTextEdit_acfe29a4feed864dbcf120ce4474261a1}{send\_text}(this->text());
+16 \}
+\end{DoxyCode}
+\hypertarget{classTextEdit_af16f1dd8808dd97f52783c614073ae12}{}\index{Text\+Edit@{Text\+Edit}!slot\+\_\+clear\+\_\+text@{slot\+\_\+clear\+\_\+text}}
+\index{slot\+\_\+clear\+\_\+text@{slot\+\_\+clear\+\_\+text}!Text\+Edit@{Text\+Edit}}
+\subsubsection[{slot\+\_\+clear\+\_\+text}]{\setlength{\rightskip}{0pt plus 5cm}void Text\+Edit\+::slot\+\_\+clear\+\_\+text (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\label{classTextEdit_af16f1dd8808dd97f52783c614073ae12}
+
+
+slot\+\_\+clear\+\_\+text слот для вызова отчистки текстового поля 
+
+
+
+Definition at line 23 of file Textedit.\+cpp.
+
+
+\begin{DoxyCode}
+24 \{
+25     this->setText(\textcolor{stringliteral}{""});
+26 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Textedit_8h}{Textedit.\+h}\item 
+\hyperlink{Textedit_8cpp}{Textedit.\+cpp}\end{DoxyCompactItemize}

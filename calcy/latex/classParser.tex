@@ -1,0 +1,531 @@
+\hypertarget{classParser}{}\section{Parser Class Reference}
+\label{classParser}\index{Parser@{Parser}}
+
+
+The \hyperlink{classParser}{Parser} class Получает выражение для парсинга Распознаёт лексемы указанные в cmd\+\_\+operation по средствам методова to\+Pars , Передаёт комманды и значения классу \hyperlink{classRecognizer}{Recognizer} который строит список и вычисляет распознанное выражение. Проверяет на ошибки ввода данных и их корректность Проверяет\+: баланс скобок, открывающие скобки для функций, включение не распозаваемых лексем  
+
+
+
+
+{\ttfamily \#include $<$Parser.\+h$>$}
+
+
+
+Collaboration diagram for Parser\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classParser_a12234f6cd36b61af4b50c94a179422c1}{Parser} ()
+\item 
+bool \hyperlink{classParser_a0979afe597b9164b2c1f321631b2d85f}{to\+Pars} (std\+::string verb)
+\begin{DoxyCompactList}\small\item\em to\+Pars производит парсинг выражения и отправляет команды \hyperlink{classRecognizer}{Recognizer} о построении дерева \end{DoxyCompactList}\item 
+double \hyperlink{classParser_a9ec78022f7acbb77f6e1dad63cadd252}{get\+\_\+result} () const 
+\begin{DoxyCompactList}\small\item\em get\+\_\+result getter для this-\/$>$result \end{DoxyCompactList}\item 
+\hyperlink{classParser_a3e658b5917a93a3ef648050d060e3a93}{$\sim$\+Parser} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classParser_a2debdde495ea6985cdb52cbe026d7a22}{is\+\_\+correct} (std\+::string $\ast$r)
+\begin{DoxyCompactList}\small\item\em check\+\_\+on\+\_\+correct проверит одинаково ли количество открывающих и закрывающих скобок \end{DoxyCompactList}\item 
+void \hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{send\+Command\+To\+Tree} (\hyperlink{structNSParser_1_1cell__verb}{N\+S\+Parser\+::cell\+\_\+verb} cmd)
+\begin{DoxyCompactList}\small\item\em send\+Command\+To\+Tree передаёт комманду о построении дереву выражения \end{DoxyCompactList}\item 
+void \hyperlink{classParser_a0caed183ad698e5fac90819091140e0a}{print\+\_\+verb} (\hyperlink{structNSParser_1_1cell__verb}{N\+S\+Parser\+::cell\+\_\+verb} cmd)
+\begin{DoxyCompactList}\small\item\em print\+\_\+verb выводит в консоль значения полей cmd \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classParser_adab1eb7202f5042fa2daa7cd4238799e}{result}
+\item 
+\hyperlink{classRecognizer}{Recognizer} $\ast$ \hyperlink{classParser_a095ffde82968c2b8b067752f1b7ff9f5}{recognizer}
+\item 
+std\+::string \hyperlink{classParser_aab0019b329a95aca59b17250045ca808}{cmd\+\_\+operation} = \char`\"{}( + -\/\+\_\+ $\ast$ / ! $^\wedge$ ) , sin cos tan ctan log ln asin acos sign mod sqrt exp\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classParser}{Parser} class Получает выражение для парсинга Распознаёт лексемы указанные в cmd\+\_\+operation по средствам методова to\+Pars , Передаёт комманды и значения классу \hyperlink{classRecognizer}{Recognizer} который строит список и вычисляет распознанное выражение. Проверяет на ошибки ввода данных и их корректность Проверяет\+: баланс скобок, открывающие скобки для функций, включение не распозаваемых лексем 
+
+Definition at line 21 of file Parser.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classParser_a12234f6cd36b61af4b50c94a179422c1}{}\index{Parser@{Parser}!Parser@{Parser}}
+\index{Parser@{Parser}!Parser@{Parser}}
+\subsubsection[{Parser}]{\setlength{\rightskip}{0pt plus 5cm}Parser\+::\+Parser (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classParser_a12234f6cd36b61af4b50c94a179422c1}
+
+
+Definition at line 39 of file Parser.\+cpp.
+
+
+\begin{DoxyCode}
+40 \{
+41     this->\hyperlink{classParser_a095ffde82968c2b8b067752f1b7ff9f5}{recognizer}    = \textcolor{keyword}{new} \hyperlink{classRecognizer}{Recognizer}();
+42 \}
+\end{DoxyCode}
+\hypertarget{classParser_a3e658b5917a93a3ef648050d060e3a93}{}\index{Parser@{Parser}!````~Parser@{$\sim$\+Parser}}
+\index{````~Parser@{$\sim$\+Parser}!Parser@{Parser}}
+\subsubsection[{$\sim$\+Parser}]{\setlength{\rightskip}{0pt plus 5cm}Parser\+::$\sim$\+Parser (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classParser_a3e658b5917a93a3ef648050d060e3a93}
+
+
+Definition at line 299 of file Parser.\+cpp.
+
+
+\begin{DoxyCode}
+300 \{
+301     \textcolor{keyword}{delete} this->\hyperlink{classParser_a095ffde82968c2b8b067752f1b7ff9f5}{recognizer};
+302 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classParser_a9ec78022f7acbb77f6e1dad63cadd252}{}\index{Parser@{Parser}!get\+\_\+result@{get\+\_\+result}}
+\index{get\+\_\+result@{get\+\_\+result}!Parser@{Parser}}
+\subsubsection[{get\+\_\+result}]{\setlength{\rightskip}{0pt plus 5cm}double Parser\+::get\+\_\+result (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{classParser_a9ec78022f7acbb77f6e1dad63cadd252}
+
+
+get\+\_\+result getter для this-\/$>$result 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 294 of file Parser.\+cpp.
+
+
+\begin{DoxyCode}
+295 \{
+296     \textcolor{keywordflow}{return} this->\hyperlink{classParser_adab1eb7202f5042fa2daa7cd4238799e}{result};
+297 \}
+\end{DoxyCode}
+\hypertarget{classParser_a2debdde495ea6985cdb52cbe026d7a22}{}\index{Parser@{Parser}!is\+\_\+correct@{is\+\_\+correct}}
+\index{is\+\_\+correct@{is\+\_\+correct}!Parser@{Parser}}
+\subsubsection[{is\+\_\+correct}]{\setlength{\rightskip}{0pt plus 5cm}bool Parser\+::is\+\_\+correct (
+\begin{DoxyParamCaption}
+\item[{std\+::string $\ast$}]{r}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classParser_a2debdde495ea6985cdb52cbe026d7a22}
+
+
+check\+\_\+on\+\_\+correct проверит одинаково ли количество открывающих и закрывающих скобок 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 3 of file Parser.\+cpp.
+
+
+\begin{DoxyCode}
+4 \{
+5     \textcolor{keywordtype}{int} count=0;
+6     std::string::const\_iterator iter = r->begin();
+7     \textcolor{keywordflow}{for}(;iter<r->end();iter++)
+8     \{
+9         \textcolor{keywordflow}{if}(*iter == \textcolor{charliteral}{'('})
+10         \{
+11              count++;
+12              \textcolor{keywordflow}{continue};
+13         \}
+14         \textcolor{keywordflow}{if}(*iter == \textcolor{charliteral}{')'})
+15         \{
+16              count--;
+17              \textcolor{keywordflow}{continue};
+18         \}
+19     \}
+20     \textcolor{keywordflow}{if}(count == 0) \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+21 
+22     \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+23 \}
+\end{DoxyCode}
+\hypertarget{classParser_a0caed183ad698e5fac90819091140e0a}{}\index{Parser@{Parser}!print\+\_\+verb@{print\+\_\+verb}}
+\index{print\+\_\+verb@{print\+\_\+verb}!Parser@{Parser}}
+\subsubsection[{print\+\_\+verb}]{\setlength{\rightskip}{0pt plus 5cm}void Parser\+::print\+\_\+verb (
+\begin{DoxyParamCaption}
+\item[{{\bf N\+S\+Parser\+::cell\+\_\+verb}}]{cmd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classParser_a0caed183ad698e5fac90819091140e0a}
+
+
+print\+\_\+verb выводит в консоль значения полей cmd 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & команда для дерева \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 30 of file Parser.\+cpp.
+
+
+\begin{DoxyCode}
+31 \{
+32     cout<<\textcolor{stringliteral}{"Command: "}         <<\textcolor{charliteral}{'\(\backslash\)n'}
+33        <<\textcolor{charliteral}{'\(\backslash\)t'}<<\textcolor{stringliteral}{"cod: "}        <<cmd.\hyperlink{structNSParser_1_1cell__verb_a71c80dd322f510111134723368aa4470}{cod\_cmd}<<\textcolor{charliteral}{'\(\backslash\)n'}
+34        <<\textcolor{charliteral}{'\(\backslash\)t'}<<\textcolor{stringliteral}{"operation: "}  <<cmd.\hyperlink{structNSParser_1_1cell__verb_a41d5d55651956c9d353f33b1aedb1fb2}{operation}<<\textcolor{charliteral}{'\(\backslash\)n'}
+35        <<\textcolor{charliteral}{'\(\backslash\)t'}<<\textcolor{stringliteral}{"function: "}  <<cmd.\hyperlink{structNSParser_1_1cell__verb_ae01137555ad15a3c3cd22018588c5c1d}{function}<<\textcolor{charliteral}{'\(\backslash\)n'}
+36        <<\textcolor{charliteral}{'\(\backslash\)t'}<<\textcolor{stringliteral}{"value: "}      <<cmd.\hyperlink{structNSParser_1_1cell__verb_a8b0aa5da814292043c02ac6bd7544a6f}{value}<<\textcolor{charliteral}{'\(\backslash\)n'};
+37 \}
+\end{DoxyCode}
+\hypertarget{classParser_ac61a1fedefe50ed900f0e65c029053c1}{}\index{Parser@{Parser}!send\+Command\+To\+Tree@{send\+Command\+To\+Tree}}
+\index{send\+Command\+To\+Tree@{send\+Command\+To\+Tree}!Parser@{Parser}}
+\subsubsection[{send\+Command\+To\+Tree}]{\setlength{\rightskip}{0pt plus 5cm}void Parser\+::send\+Command\+To\+Tree (
+\begin{DoxyParamCaption}
+\item[{{\bf N\+S\+Parser\+::cell\+\_\+verb}}]{cmd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{classParser_ac61a1fedefe50ed900f0e65c029053c1}
+
+
+send\+Command\+To\+Tree передаёт комманду о построении дереву выражения 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cmd} & команда для дерева \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 25 of file Parser.\+cpp.
+
+
+\begin{DoxyCode}
+26 \{
+27     this->\hyperlink{classParser_a095ffde82968c2b8b067752f1b7ff9f5}{recognizer}->\hyperlink{classRecognizer_aeadea601dea82f59e0750ed7adbef337}{addElement}(cmd);
+28 \}
+\end{DoxyCode}
+\hypertarget{classParser_a0979afe597b9164b2c1f321631b2d85f}{}\index{Parser@{Parser}!to\+Pars@{to\+Pars}}
+\index{to\+Pars@{to\+Pars}!Parser@{Parser}}
+\subsubsection[{to\+Pars}]{\setlength{\rightskip}{0pt plus 5cm}bool Parser\+::to\+Pars (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{verb}
+\end{DoxyParamCaption}
+)}\label{classParser_a0979afe597b9164b2c1f321631b2d85f}
+
+
+to\+Pars производит парсинг выражения и отправляет команды \hyperlink{classRecognizer}{Recognizer} о построении дерева 
+
+
+\begin{DoxyParams}{Parameters}
+{\em verb} & выражение для парсинга \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 44 of file Parser.\+cpp.
+
+
+\begin{DoxyCode}
+45 \{
+46     \textcolor{comment}{//std::cout<<"Parsing: <"<<verb<<"> "<<std::endl;}
+47 
+48     this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{\hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba3b1af1d878b1d699d8ac8080125f8793}{NSParser::BEGIN\_CREATION},-1,\textcolor{charliteral}{'@'},-1\});
+49 
+50     string::iterator iter = verb.begin();
+51     \textcolor{keywordflow}{if}(\hyperlink{classParser_a2debdde495ea6985cdb52cbe026d7a22}{is\_correct}(&(verb)))
+52     \{
+53         \textcolor{comment}{//std::cout<<"Баланс скобок учтён"<<'\(\backslash\)n';}
+54 
+55         \textcolor{keywordflow}{if}(verb.size()==0)
+56         \{
+57             cout<<\textcolor{stringliteral}{"Пустое выражение\(\backslash\)n"};
+58             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+59         \}
+60         \textcolor{comment}{//std::cout<<"Начало выражения"<<'\(\backslash\)n';}
+61         \textcolor{comment}{//this->sendCommandToTree(\{-1,-1,-1,100\});}
+62 
+63         \textcolor{keywordflow}{for}(;iter<verb.end();++iter)
+64         \{
+65             \textcolor{keywordflow}{if}(std::isdigit(*iter))
+66             \{
+67                 string::iterator tmp=iter;
+68                 \textcolor{keywordflow}{while}(std::isdigit(*tmp)) ++tmp;
+69 
+70                 \textcolor{keywordflow}{if}(*tmp == \textcolor{charliteral}{'.'})
+71                 \{
+72                     \textcolor{comment}{//cout<<"\(\backslash\)tЧисло c плавающей точков: "<<std::stod(&(*iter))<<'\(\backslash\)n';}
+73                     this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{\hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4ebaa10e0f3b6b9d7ae45b425f5cda0ef15c}{NSParser::NUMBER},-1,-1,
+      std::stod(&(*iter))\});
+74                     \textcolor{keywordflow}{while}(std::isdigit(*iter)) iter++;
+75                     iter++;\textcolor{comment}{//пропустить точку}
+76                     \textcolor{keywordflow}{while}(std::isdigit(*iter)) iter++;
+77                     iter--;
+78 
+79                     \textcolor{keywordflow}{continue};
+80                 \}
+81                 \textcolor{keywordflow}{else}\{
+82                     \textcolor{comment}{//cout<<"\(\backslash\)tЧисло цело: "<<std::stoi(&(*iter))<<'\(\backslash\)n';}
+83                     this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{\hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4ebaa10e0f3b6b9d7ae45b425f5cda0ef15c}{NSParser::NUMBER},-1,-1,
+      std::stoi(&(*iter))\});
+84                     \textcolor{keywordflow}{while}(std::isdigit(*iter)) iter++;
+85                     iter--;
+86                     \textcolor{keywordflow}{continue};
+87                 \}
+88 
+89             \}
+90             \textcolor{keywordflow}{if}(\hyperlink{classParser_aab0019b329a95aca59b17250045ca808}{cmd\_operation}.find(*iter) != std::string::npos)
+91             \{
+92                 \textcolor{comment}{//cout<<"In"<<*iter<<'\(\backslash\)n';}
+93                 \textcolor{keywordflow}{switch} (*iter)
+94                 \{
+95                     \textcolor{keywordflow}{case} \textcolor{charliteral}{'+'}:\textcolor{keywordflow}{case} \textcolor{charliteral}{'-'}:
+96                     \textcolor{keywordflow}{case} \textcolor{charliteral}{'*'}:\textcolor{keywordflow}{case} \textcolor{charliteral}{'/'}:
+97                     \textcolor{keywordflow}{case} \textcolor{charliteral}{','}:
+98                         \textcolor{comment}{//cout<<"\(\backslash\)tОперация: "<<*iter<<'\(\backslash\)n';}
+99                         this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{
+      \hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba7a26bb054a051038e7755d8ca6abd120}{NSParser::OPERATION},-1,*iter,-1\});
+100                         \textcolor{keywordflow}{continue};
+101                     \textcolor{keywordflow}{case} \textcolor{charliteral}{'!'}:\textcolor{keywordflow}{case} \textcolor{charliteral}{'^'}:
+102                         \textcolor{comment}{//cout<<"\(\backslash\)t Унарная операция: "<<*iter<<'\(\backslash\)n';}
+103                         this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{
+      \hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba7a26bb054a051038e7755d8ca6abd120}{NSParser::OPERATION},-1,*iter,-1\});
+104                         \textcolor{keywordflow}{continue};
+105                     \textcolor{keywordflow}{case} \textcolor{charliteral}{'('}:
+106                         this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{
+      \hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba01ab2b1951d3f082d1bdea65be62500a}{NSParser::OPEN\_BRACKET},-1,-1,-1\});
+107                         \textcolor{keywordflow}{continue};
+108                     \textcolor{keywordflow}{case} \textcolor{charliteral}{')'}:
+109                         this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{
+      \hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4ebae5dcc33e6698dfacd80c68d023742679}{NSParser::CLOSE\_BRACKET},-1,-1,-1\});
+110                         \textcolor{keywordflow}{continue};
+111                 \}
+112 
+113                 \textcolor{keywordflow}{if}(*iter == \textcolor{charliteral}{'l'})
+114                 \{
+115                     \textcolor{keywordflow}{if}(*(iter+1) == \textcolor{charliteral}{'o'})
+116                     \{
+117                         \textcolor{comment}{//cout<<"\(\backslash\)tФункция: "<<"log"<<'\(\backslash\)n';}
+118                         \textcolor{keywordflow}{if}(*(iter+3) != \textcolor{charliteral}{'('})
+119                         \{
+120                             \textcolor{comment}{//cout<<"Error open ( in log"<<'\(\backslash\)n';}
+121                             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+122                         \}
+123                         this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{
+      \hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba4adabba7d2f386bba54639075a582a36}{NSParser::FUNCTION},\hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a9667a30f73605cf32db6c8c94ab528da}{NSParser::LOG},-1,-1\});
+124                         iter+=2;
+125                         \textcolor{keywordflow}{continue};
+126 
+127                     \}
+128                     \textcolor{keywordflow}{if}(*(iter+1) == \textcolor{charliteral}{'n'})
+129                     \{
+130                         \textcolor{comment}{//cout<<"\(\backslash\)tФункция: "<<"ln"<<'\(\backslash\)n';}
+131                         \textcolor{keywordflow}{if}(*(iter+2) != \textcolor{charliteral}{'('})
+132                         \{
+133                             \textcolor{comment}{//cout<<"Error open ( in ln"<<'\(\backslash\)n';}
+134                             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+135                         \}
+136                         this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{
+      \hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba4adabba7d2f386bba54639075a582a36}{NSParser::FUNCTION},\hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9aa1683bf9eb7c51325f4c14776cb1063b}{NSParser::LN},-1,-1\});
+137                         iter+=1;
+138                         \textcolor{keywordflow}{continue};
+139                     \}
+140                 \}
+141                 \textcolor{keywordflow}{if}(*iter == \textcolor{charliteral}{'c'})
+142                 \{
+143                     \textcolor{keywordflow}{if}(*(iter+1) == \textcolor{charliteral}{'o'})
+144                     \{
+145                         \textcolor{comment}{//cout<<"\(\backslash\)tФункция: "<<"cos"<<'\(\backslash\)n';}
+146                         \textcolor{keywordflow}{if}(*(iter+3) != \textcolor{charliteral}{'('})
+147                         \{
+148                             \textcolor{comment}{//cout<<"Error open ( in cos"<<'\(\backslash\)n';}
+149                             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+150                         \}
+151                         this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{
+      \hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba4adabba7d2f386bba54639075a582a36}{NSParser::FUNCTION},\hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9ab07effe3bb5c293e74b3ffdf8910e9f7}{NSParser::COS},-1,-1\});
+152                         iter+=2;
+153                         \textcolor{keywordflow}{continue};
+154                     \}
+155                     \textcolor{keywordflow}{if}(*(iter+1) == \textcolor{charliteral}{'t'})
+156                     \{
+157                         \textcolor{comment}{//cout<<"\(\backslash\)tФункция: "<<"ctan"<<'\(\backslash\)n';}
+158                         \textcolor{keywordflow}{if}(*(iter+4) != \textcolor{charliteral}{'('})
+159                         \{
+160                              cout<<\textcolor{stringliteral}{"Error open ( in ctg"}<<\textcolor{charliteral}{'\(\backslash\)n'};
+161                              \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+162                         \}
+163                         this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{
+      \hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba4adabba7d2f386bba54639075a582a36}{NSParser::FUNCTION},\hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a25ff62fb6a1e42f59f3b2a70d31ad875}{NSParser::CTAN},-1,-1\});
+164                         iter+=3;
+165                         \textcolor{keywordflow}{continue};
+166                     \}
+167                 \}
+168                 \textcolor{keywordflow}{if}(*iter == \textcolor{charliteral}{'s'} && *(iter+1) == \textcolor{charliteral}{'i'})
+169                 \{
+170                     \textcolor{keywordflow}{if}(*(iter+2) == \textcolor{charliteral}{'n'} )
+171                     \{
+172                         \textcolor{comment}{//cout<<"\(\backslash\)tФункция: "<<"sin"<<'\(\backslash\)n';}
+173                         \textcolor{keywordflow}{if}(*(iter+3) != \textcolor{charliteral}{'('})
+174                         \{
+175                              \textcolor{comment}{//cout<<"Error open ( in sin"<<'\(\backslash\)n';}
+176                              \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+177                         \}
+178                         this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{
+      \hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba4adabba7d2f386bba54639075a582a36}{NSParser::FUNCTION},\hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a27583ac72ebf80402125b171fafa8819}{NSParser::SIN},-1,-1\});
+179                         iter+=2;
+180                         \textcolor{keywordflow}{continue};
+181                     \}
+182                 \}
+183                 \textcolor{keywordflow}{if}(*iter == \textcolor{charliteral}{'t'})
+184                 \{
+185                     \textcolor{keywordflow}{if}(*(iter+1) == \textcolor{charliteral}{'a'})
+186                     \{
+187                         \textcolor{comment}{//cout<<"\(\backslash\)tФункция: "<<"tan"<<'\(\backslash\)n';}
+188                         \textcolor{keywordflow}{if}(*(iter+3) != \textcolor{charliteral}{'('})
+189                         \{
+190                             cout<<\textcolor{stringliteral}{"Error open ( in tan"}<<\textcolor{charliteral}{'\(\backslash\)n'};
+191                             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+192                         \}
+193                         this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{
+      \hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba4adabba7d2f386bba54639075a582a36}{NSParser::FUNCTION},\hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a14eb2e9650d2c58c2f0a54ce8eb32792}{NSParser::TAN},-1,-1\});
+194                         iter+=2;
+195                         \textcolor{keywordflow}{continue};
+196                     \}
+197                 \}
+198                 \textcolor{keywordflow}{if}(*iter == \textcolor{charliteral}{'s'})
+199                 \{
+200                     \textcolor{keywordflow}{if}(*(iter+1) == \textcolor{charliteral}{'i'} && *(iter+2) == \textcolor{charliteral}{'g'} )
+201                     \{
+202                         \textcolor{comment}{//cout<<"\(\backslash\)tФункция: "<<"sign"<<'\(\backslash\)n';}
+203                         \textcolor{keywordflow}{if}(*(iter+4) != \textcolor{charliteral}{'('})
+204                         \{
+205                              \textcolor{comment}{//cout<<"Error open ( in sign"<<'\(\backslash\)n';}
+206                              \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+207                         \}
+208                         this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{
+      \hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba4adabba7d2f386bba54639075a582a36}{NSParser::FUNCTION},\hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9ae049848210127b105cfc43deae883072}{NSParser::SIGN},-1,-1\});
+209                         iter+=3;
+210                         \textcolor{keywordflow}{continue};
+211                     \}
+212                 \}
+213                 \textcolor{keywordflow}{if}(*iter == \textcolor{charliteral}{'a'})
+214                 \{
+215                     \textcolor{keywordflow}{if}(*(iter+1) == \textcolor{charliteral}{'s'})
+216                     \{
+217                         \textcolor{comment}{//cout<<"\(\backslash\)tФункция: "<<"asin"<<'\(\backslash\)n';}
+218                         \textcolor{keywordflow}{if}(*(iter+4) != \textcolor{charliteral}{'('})
+219                         \{
+220                             \textcolor{comment}{//cout<<"Error open ( in asin"<<'\(\backslash\)n';}
+221                             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+222                         \}
+223                         this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{
+      \hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba4adabba7d2f386bba54639075a582a36}{NSParser::FUNCTION},\hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a68ae975169c90b9cb6232cec5bbeebca}{NSParser::ASIN},-1,-1\});
+224                         iter+=3;
+225                         \textcolor{keywordflow}{continue};
+226                     \}
+227                     \textcolor{keywordflow}{if}(*(iter+1) == \textcolor{charliteral}{'c'})
+228                     \{
+229                         \textcolor{comment}{//cout<<"\(\backslash\)tФункция: "<<"acos"<<'\(\backslash\)n';}
+230                         \textcolor{keywordflow}{if}(*(iter+4) != \textcolor{charliteral}{'('})
+231                         \{
+232                             \textcolor{comment}{//cout<<"Error open ( in acos"<<'\(\backslash\)n';}
+233                             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+234                         \}
+235                         this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{
+      \hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba4adabba7d2f386bba54639075a582a36}{NSParser::FUNCTION},\hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a6e166b7b8ca1eb0877e5906ec1433bb2}{NSParser::ACOS},-1,-1\});
+236                         iter+=3;
+237                         \textcolor{keywordflow}{continue};
+238                     \}
+239                 \}
+240                 \textcolor{keywordflow}{if}(*iter == \textcolor{charliteral}{'m'} && *(iter+1)==\textcolor{charliteral}{'o'} && *(iter+2)==\textcolor{charliteral}{'d'})
+241                 \{
+242                     \textcolor{comment}{//cout<<"\(\backslash\)tФункция mod\(\backslash\)n";}
+243                     \textcolor{keywordflow}{if}(*(iter+3)!=\textcolor{charliteral}{'('})
+244                     \{
+245                          \textcolor{comment}{//cout<<"Error open ( in mod\(\backslash\)n";}
+246                          \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+247                     \}
+248                     this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{\hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba4adabba7d2f386bba54639075a582a36}{NSParser::FUNCTION},
+      \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9ae8c0916769d2afe15d9edacaa3346851}{NSParser::MODUL},-1,-1\});
+249                     iter+=2;
+250                     \textcolor{keywordflow}{continue};
+251 
+252                 \}
+253                 \textcolor{keywordflow}{if}(*iter == \textcolor{charliteral}{'s'} && *(iter+1)==\textcolor{charliteral}{'q'} && *(iter+2)==\textcolor{charliteral}{'r'} && *(iter+3)==\textcolor{charliteral}{'t'})
+254                 \{
+255                     \textcolor{comment}{//cout<<"\(\backslash\)tФункция sqrt\(\backslash\)n";}
+256                     \textcolor{keywordflow}{if}(*(iter+4)!=\textcolor{charliteral}{'('})
+257                     \{
+258                          \textcolor{comment}{//cout<<"Error open ( in sqrt\(\backslash\)n";}
+259                          \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+260                     \}
+261                     this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{\hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba4adabba7d2f386bba54639075a582a36}{NSParser::FUNCTION},
+      \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a4051b90258c729c4fdd863f44041a25b}{NSParser::SQRT},-1,-1\});
+262                     iter+=3;
+263                     \textcolor{keywordflow}{continue};
+264                 \}
+265                 \textcolor{keywordflow}{if}(*iter == \textcolor{charliteral}{'e'} && *(iter+1)==\textcolor{charliteral}{'x'} && *(iter+2)==\textcolor{charliteral}{'p'})
+266                 \{
+267                     \textcolor{comment}{//cout<<"\(\backslash\)tФункция exp\(\backslash\)n";}
+268                     \textcolor{keywordflow}{if}(*(iter+3)!=\textcolor{charliteral}{'('})
+269                     \{
+270                          \textcolor{comment}{//cout<<"Error open ( in exp\(\backslash\)n";}
+271                          \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+272                     \}
+273                     this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{\hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba4adabba7d2f386bba54639075a582a36}{NSParser::FUNCTION},
+      \hyperlink{namespaceNSParser_aae20df1402d72f463a1a9efe3ce1a9b9a189aff615329a6c73a15282170e4aefb}{NSParser::EXP},-1,-1\});
+274                     iter+=2;
+275                     \textcolor{keywordflow}{continue};
+276                 \}
+277 
+278                 \textcolor{comment}{//cout<<"\_ERROR\_: не существующая функция"<<'\(\backslash\)n';}
+279                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+280             \}
+281             \textcolor{comment}{//cout<<"\_ERROR\_: не существующий оператор"<<'\(\backslash\)n';}
+282             \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+283         \}
+284     \}\textcolor{keywordflow}{else}\{
+285         \textcolor{comment}{//cout<<"\_ERROR\_: нарушен баланс скобок"<<'\(\backslash\)n';}
+286         \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+287     \}
+288     \textcolor{comment}{//cout<<"Конец выражения"<<"\(\backslash\)n";}
+289     this->\hyperlink{classParser_ac61a1fedefe50ed900f0e65c029053c1}{sendCommandToTree}(\{\hyperlink{namespaceNSParser_aca012df556c0413c6166348fdd62c4eba746882bf4644e9d73388d3132719bcf4}{NSParser::END\_CREATION},-1,\textcolor{charliteral}{'@'},-1\});
+290     \hyperlink{classParser_adab1eb7202f5042fa2daa7cd4238799e}{result}=this->\hyperlink{classParser_a095ffde82968c2b8b067752f1b7ff9f5}{recognizer}->\hyperlink{classRecognizer_a31399be9b5e3eaf37dc90a749ed771bb}{get\_result}();
+291     \textcolor{keywordflow}{return} \textcolor{keyword}{true};
+292 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classParser_aab0019b329a95aca59b17250045ca808}{}\index{Parser@{Parser}!cmd\+\_\+operation@{cmd\+\_\+operation}}
+\index{cmd\+\_\+operation@{cmd\+\_\+operation}!Parser@{Parser}}
+\subsubsection[{cmd\+\_\+operation}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Parser\+::cmd\+\_\+operation = \char`\"{}( + -\/\+\_\+ $\ast$ / ! $^\wedge$ ) , sin cos tan ctan log ln asin acos sign mod sqrt exp\char`\"{}\hspace{0.3cm}{\ttfamily [private]}}\label{classParser_aab0019b329a95aca59b17250045ca808}
+
+
+Definition at line 26 of file Parser.\+h.
+
+\hypertarget{classParser_a095ffde82968c2b8b067752f1b7ff9f5}{}\index{Parser@{Parser}!recognizer@{recognizer}}
+\index{recognizer@{recognizer}!Parser@{Parser}}
+\subsubsection[{recognizer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Recognizer}$\ast$ Parser\+::recognizer\hspace{0.3cm}{\ttfamily [private]}}\label{classParser_a095ffde82968c2b8b067752f1b7ff9f5}
+
+
+Definition at line 25 of file Parser.\+h.
+
+\hypertarget{classParser_adab1eb7202f5042fa2daa7cd4238799e}{}\index{Parser@{Parser}!result@{result}}
+\index{result@{result}!Parser@{Parser}}
+\subsubsection[{result}]{\setlength{\rightskip}{0pt plus 5cm}double Parser\+::result\hspace{0.3cm}{\ttfamily [private]}}\label{classParser_adab1eb7202f5042fa2daa7cd4238799e}
+
+
+Definition at line 24 of file Parser.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Parser_8h}{Parser.\+h}\item 
+\hyperlink{Parser_8cpp}{Parser.\+cpp}\end{DoxyCompactItemize}
