@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui testlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -20,7 +20,8 @@ SOURCES += main.cpp \
     Parser.cpp \
     Model.cpp \
     Button.cpp \
-    Textedit.cpp
+    Textedit.cpp \
+    Test_Parser.cpp
 
 
 HEADERS  += \
@@ -31,5 +32,6 @@ HEADERS  += \
     Parser_name_space.h \
     Model.h \
     Button.h \
-    Textedit.h
+    Textedit.h \
+    Test_Parser.h
 

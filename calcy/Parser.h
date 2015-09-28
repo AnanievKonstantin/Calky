@@ -20,7 +20,7 @@ using std::cout;
  */
 class Parser
 {
-private:
+public:
     double result;
     Recognizer * recognizer;
     std::string cmd_operation= "( + -_ * / ! ^ ) , sin cos tan ctan log ln asin acos sign mod sqrt exp";

@@ -35,7 +35,7 @@ struct list_cell{
 class Recognizer
 {
 
-private:
+public:
     double reselt_calculation=-666;
     list_cell * head=nullptr;
     list_cell * tail=nullptr;

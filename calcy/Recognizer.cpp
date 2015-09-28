@@ -61,14 +61,14 @@ int Recognizer::get_priority(NSParser::cell_verb &cmd)
 
 void Recognizer::print_expression_list() const
 {
-    list_cell * tmp=head;
+//    list_cell * tmp=head;
 
-    std::cout<<"{\n";
-    for(;tmp!=nullptr;tmp=tmp->next)
-    {
-        this->print_cell_list(tmp);
-    }
-    std::cout<<"}\n";
+//    std::cout<<"{\n";
+//    for(;tmp!=nullptr;tmp=tmp->next)
+//    {
+//        this->print_cell_list(tmp);
+//    }
+//    std::cout<<"}\n";
 }
 
 void Recognizer::print_cell_list(list_cell * cell) const
